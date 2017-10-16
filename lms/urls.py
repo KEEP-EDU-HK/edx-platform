@@ -1024,3 +1024,16 @@ if settings.FEATURES.get('ENABLE_FINANCIAL_ASSISTANCE_FORM'):
             name='submit_financial_assistance_request'
         )
     )
+
+urlpatterns += (
+    # For Auto Enrol API
+    url(r'^api/autoenrol[/]?$', 'api.autoenrol.views.auto_enrol'),
+    url(r'^api/autoenrol/enrolperiod[/]?$', 'api.autoenrol.views.show_enrollment_period'),
+ 
+    # For Course Catalog API
+    url(r'^api[/]?$', 'api.views.show_public_courses'),
+    url(r'^api/v1/(?P<action>.*)$', 'api.views.show'),
+
+    # SAML Redirect to Studio
+    url(r'^saml_redirect$', 'student_account.views.saml_studio_redirect'),
+)
