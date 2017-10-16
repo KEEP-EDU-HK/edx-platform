@@ -11,6 +11,7 @@ from xmodule.contentstore.content import StaticContent
 from xmodule.contentstore.django import contentstore
 from xmodule.modulestore.django import modulestore
 
+import urllib3
 
 def course_image_url(course, image_key='course_image'):
     """Try to look up the image url for the course.  If it's not found,
@@ -22,18 +23,31 @@ def course_image_url(course, image_key='course_image'):
         # courses can use custom course image paths, otherwise just
         # return the default static path.
         url = '/static/' + (course.static_asset_path or getattr(course, 'data_dir', ''))
+
         if hasattr(course, image_key) and getattr(course, image_key) != course.fields[image_key].default:
             url += '/' + getattr(course, image_key)
+
         else:
             url += '/images/' + image_key + '.jpg'
+
     elif not getattr(course, image_key):
         # if image_key is empty, use the default image url from settings
         url = settings.STATIC_URL + settings.DEFAULT_COURSE_ABOUT_IMAGE_URL
+
     else:
         loc = StaticContent.compute_location(course.id, getattr(course, image_key))
         url = StaticContent.serialize_asset_key_with_slash(loc)
 
-    return url
+    # default course image
+    http = urllib3.PoolManager()
+    req = http.request('GET', settings.LMS_ROOT_URL + url)
+    if req.status == 404:
+        url = settings.DEFAULT_COURSE_ABOUT_IMAGE_URL
+        return url
+    else:
+        return url
+
+    #return url
 
 
 def create_course_image_thumbnail(course, dimensions):
