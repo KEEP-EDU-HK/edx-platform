@@ -2135,12 +2135,14 @@ def create_account(request, post_override=None):
             status=400
         )
 
-    redirect_url = None  # The AJAX method calling should know the default destination upon success
+    #redirect_url = None  # The AJAX method calling should know the default destination upon success
 
     # Resume the third-party-auth pipeline if necessary.
     if third_party_auth.is_enabled() and pipeline.running(request):
         running_pipeline = pipeline.get(request)
         redirect_url = pipeline.get_complete_url(running_pipeline['backend'])
+
+    redirect_url = request.POST.get('next', None)
 
     response = JsonResponse({
         'success': True,
@@ -2826,7 +2828,7 @@ class LogoutView(TemplateView):
     template_name = 'logout.html'
 
     # Keep track of the page to which the user should ultimately be redirected.
-    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else '/'
+    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else 'https://auth.keep.testbot.xyz/idp/module.php/core/authenticate.php?as=keep-sql&logout'
 
     @property
     def target(self):
