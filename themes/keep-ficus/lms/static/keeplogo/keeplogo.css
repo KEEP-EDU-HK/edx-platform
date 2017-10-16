@@ -1,0 +1,971 @@
+@font-face {
+	font-family: 'keeplogo';
+	src:url('keeplogo.eot?qux27p');
+	src:url('keeplogo.eot?#iefixqux27p') format('embedded-opentype'),
+		url('keeplogo.woff?qux27p') format('woff'),
+		url('keeplogo.ttf?qux27p') format('truetype'),
+		url('keeplogo.svg?qux27p#keeplogo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'keeplogo';
+        src: url('keeplogo.svg#keeplogo') format('svg');
+    }
+}
+
+[class^="keeplogo-"], [class*=" keeplogo-"] {
+	font-family: 'keeplogo';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.keeplogo-logo_KEEP_horizontal:before {
+	content: "\e600";
+}
+
+.keeplogo-logo_KEEPApps_horizontal:before {
+	content: "\e601";
+}
+
+.keeplogo-logo_KEEPCatalog_horizontal:before {
+	content: "\e602";
+}
+
+.keeplogo-logo_KEEPConnect_horizontal:before {
+	content: "\e603";
+}
+
+.keeplogo-logo_KEEPCourse_horizontal:before {
+	content: "\e604";
+}
+
+.keeplogo-logo_KEEPedia_horizontal:before {
+	content: "\e605";
+}
+
+.keeplogo-logo_KEEPoll_horizontal:before {
+	content: "\e606";
+}
+
+.keeplogo-logo_KEEPortfolio_horizontal:before {
+	content: "\e607";
+}
+
+.keeplogo-logo_KEEPository_horizontal:before {
+	content: "\e608";
+}
+
+.keeplogo-logo_KEEPSearch_horizontal:before {
+	content: "\e609";
+}
+
+.keeplogo-logomark_KEEP:before {
+	content: "\e60a";
+}
+
+.keeplogo-logomark_KEEPApps:before {
+	content: "\e60b";
+}
+
+.keeplogo-logomark_KEEPCatalog:before {
+	content: "\e60c";
+}
+
+.keeplogo-logomark_KEEPConnect:before {
+	content: "\e60d";
+}
+
+.keeplogo-logomark_KEEPCourse:before {
+	content: "\e60e";
+}
+
+.keeplogo-logomark_KEEPedia:before {
+	content: "\e60f";
+}
+
+.keeplogo-logomark_KEEPoll:before {
+	content: "\e610";
+}
+
+.keeplogo-logomark_KEEPortfolio:before {
+	content: "\e611";
+}
+
+.keeplogo-logomark_KEEPository:before {
+	content: "\e612";
+}
+
+.keeplogo-logomark_KEEPSearch:before {
+	content: "\e613";
+}
+
+.keeplogo-logo_KEEP_vertical .path1:before {
+	content: "\e614";
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path2:before {
+	content: "\e615";
+	margin-left: -0.7568359375em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path3:before {
+	content: "\e616";
+	margin-left: -0.7568359375em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path4:before {
+	content: "\e617";
+	margin-left: -0.7568359375em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path5:before {
+	content: "\e618";
+	margin-left: -0.7568359375em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path6:before {
+	content: "\e619";
+	margin-left: -0.7568359375em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEP_vertical .path7:before {
+	content: "\e61a";
+	margin-left: -0.7568359375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEP_vertical .path8:before {
+	content: "\e61b";
+	margin-left: -0.7568359375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEP_vertical .path9:before {
+	content: "\e61c";
+	margin-left: -0.7568359375em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPApps_vertical .path1:before {
+	content: "\e61d";
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPApps_vertical .path2:before {
+	content: "\e61e";
+	margin-left: -1.291015625em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPApps_vertical .path3:before {
+	content: "\e61f";
+	margin-left: -1.291015625em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPApps_vertical .path4:before {
+	content: "\e620";
+	margin-left: -1.291015625em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPApps_vertical .path5:before {
+	content: "\e621";
+	margin-left: -1.291015625em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPApps_vertical .path6:before {
+	content: "\e622";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path7:before {
+	content: "\e623";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path8:before {
+	content: "\e624";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path9:before {
+	content: "\e625";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path10:before {
+	content: "\e626";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path11:before {
+	content: "\e627";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path12:before {
+	content: "\e628";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path13:before {
+	content: "\e629";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path14:before {
+	content: "\e62a";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPApps_vertical .path15:before {
+	content: "\e62b";
+	margin-left: -1.291015625em;
+	color: rgb(0, 0, 0);
+}
+
+.keeplogo-logo_KEEPCatalog_vertical .path1:before {
+	content: "\e62c";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path2:before {
+	content: "\e62d";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path3:before {
+	content: "\e62e";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path4:before {
+	content: "\e62f";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path5:before {
+	content: "\e630";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path6:before {
+	content: "\e631";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path7:before {
+	content: "\e632";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path8:before {
+	content: "\e633";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path9:before {
+	content: "\e634";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path10:before {
+	content: "\e635";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path11:before {
+	content: "\e636";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path12:before {
+	content: "\e637";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path13:before {
+	content: "\e638";
+	margin-left: -1.564453125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path14:before {
+	content: "\e639";
+	margin-left: -1.564453125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path15:before {
+	content: "\e63a";
+	margin-left: -1.564453125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path16:before {
+	content: "\e63b";
+	margin-left: -1.564453125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPCatalog_vertical .path17:before {
+	content: "\e63c";
+	margin-left: -1.564453125em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPConnect_vertical .path1:before {
+	content: "\e63d";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path2:before {
+	content: "\e63e";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path3:before {
+	content: "\e63f";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path4:before {
+	content: "\e640";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path5:before {
+	content: "\e641";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path6:before {
+	content: "\e642";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path7:before {
+	content: "\e643";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path8:before {
+	content: "\e644";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path9:before {
+	content: "\e645";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path10:before {
+	content: "\e646";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path11:before {
+	content: "\e647";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path12:before {
+	content: "\e648";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path13:before {
+	content: "\e649";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path14:before {
+	content: "\e64a";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path15:before {
+	content: "\e64b";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path16:before {
+	content: "\e64c";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path17:before {
+	content: "\e64d";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPCourse_vertical:before {
+	content: "\e64e";
+}
+.keeplogo-logo_KEEPConnect_vertical .path1:before {
+	content: "\e63d";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path2:before {
+	content: "\e63e";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path3:before {
+	content: "\e63f";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path4:before {
+	content: "\e640";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path5:before {
+	content: "\e641";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path6:before {
+	content: "\e642";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path7:before {
+	content: "\e643";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path8:before {
+	content: "\e644";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path9:before {
+	content: "\e645";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path10:before {
+	content: "\e646";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path11:before {
+	content: "\e647";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path12:before {
+	content: "\e648";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path13:before {
+	content: "\e649";
+	margin-left: -1.6552734375em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPConnect_vertical .path14:before {
+	content: "\e64a";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path15:before {
+	content: "\e64b";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path16:before {
+	content: "\e64c";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPConnect_vertical .path17:before {
+	content: "\e64d";
+	margin-left: -1.6552734375em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPedia_vertical .path1:before {
+	content: "\e64f";
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path2:before {
+	content: "\e650";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path3:before {
+	content: "\e651";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path4:before {
+	content: "\e652";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path5:before {
+	content: "\e653";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path6:before {
+	content: "\e654";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path7:before {
+	content: "\e655";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path8:before {
+	content: "\e656";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path9:before {
+	content: "\e657";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path10:before {
+	content: "\e658";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path11:before {
+	content: "\e659";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path12:before {
+	content: "\e65a";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path13:before {
+	content: "\e65b";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path14:before {
+	content: "\e65c";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path15:before {
+	content: "\e65d";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path16:before {
+	content: "\e65e";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path17:before {
+	content: "\e65f";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path18:before {
+	content: "\e660";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path19:before {
+	content: "\e661";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path20:before {
+	content: "\e662";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+
+.keeplogo-logo_KEEPoll_vertical:before {
+	content: "\e663";
+}
+.keeplogo-logo_KEEPedia_vertical .path1:before {
+	content: "\e64f";
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path2:before {
+	content: "\e650";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path3:before {
+	content: "\e651";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path4:before {
+	content: "\e652";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path5:before {
+	content: "\e653";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path6:before {
+	content: "\e654";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path7:before {
+	content: "\e655";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path8:before {
+	content: "\e656";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path9:before {
+	content: "\e657";
+	margin-left: -1.1875em;
+	color: rgb(29, 29, 27);
+}
+.keeplogo-logo_KEEPedia_vertical .path10:before {
+	content: "\e658";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path11:before {
+	content: "\e659";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path12:before {
+	content: "\e65a";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path13:before {
+	content: "\e65b";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path14:before {
+	content: "\e65c";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path15:before {
+	content: "\e65d";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path16:before {
+	content: "\e65e";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path17:before {
+	content: "\e65f";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path18:before {
+	content: "\e660";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path19:before {
+	content: "\e661";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPedia_vertical .path20:before {
+	content: "\e662";
+	margin-left: -1.1875em;
+	color: rgb(0, 0, 0);
+}
+
+.keeplogo-logo_KEEPortfolio_vertical .path1:before {
+	content: "\e664";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path2:before {
+	content: "\e665";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path3:before {
+	content: "\e666";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path4:before {
+	content: "\e667";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path5:before {
+	content: "\e668";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path6:before {
+	content: "\e669";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path7:before {
+	content: "\e66a";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path8:before {
+	content: "\e66b";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path9:before {
+	content: "\e66c";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path10:before {
+	content: "\e66d";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path11:before {
+	content: "\e66e";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path12:before {
+	content: "\e66f";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path13:before {
+	content: "\e670";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path14:before {
+	content: "\e671";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path15:before {
+	content: "\e672";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path16:before {
+	content: "\e673";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path17:before {
+	content: "\e674";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path18:before {
+	content: "\e675";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path19:before {
+	content: "\e676";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPository_vertical:before {
+	content: "\e677";
+}
+.keeplogo-logo_KEEPortfolio_vertical .path1:before {
+	content: "\e664";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path2:before {
+	content: "\e665";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path3:before {
+	content: "\e666";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path4:before {
+	content: "\e667";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path5:before {
+	content: "\e668";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path6:before {
+	content: "\e669";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path7:before {
+	content: "\e66a";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path8:before {
+	content: "\e66b";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path9:before {
+	content: "\e66c";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path10:before {
+	content: "\e66d";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path11:before {
+	content: "\e66e";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path12:before {
+	content: "\e66f";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path13:before {
+	content: "\e670";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path14:before {
+	content: "\e671";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path15:before {
+	content: "\e672";
+	margin-left: -1.5029296875em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path16:before {
+	content: "\e673";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path17:before {
+	content: "\e674";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path18:before {
+	content: "\e675";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPortfolio_vertical .path19:before {
+	content: "\e676";
+	margin-left: -1.5029296875em;
+	color: rgb(18, 17, 11);
+}
+
+.keeplogo-logo_KEEPSearch_vertical .path1:before {
+	content: "\e678";
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path2:before {
+	content: "\e679";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path3:before {
+	content: "\e67a";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path4:before {
+	content: "\e67b";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path5:before {
+	content: "\e67c";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path6:before {
+	content: "\e67d";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path7:before {
+	content: "\e67e";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path8:before {
+	content: "\e67f";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path9:before {
+	content: "\e680";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path10:before {
+	content: "\e681";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path11:before {
+	content: "\e682";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path12:before {
+	content: "\e683";
+	margin-left: -1.517578125em;
+	color: rgb(0, 0, 0);
+}
+.keeplogo-logo_KEEPSearch_vertical .path13:before {
+	content: "\e684";
+	margin-left: -1.517578125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPSearch_vertical .path14:before {
+	content: "\e685";
+	margin-left: -1.517578125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPSearch_vertical .path15:before {
+	content: "\e686";
+	margin-left: -1.517578125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPSearch_vertical .path16:before {
+	content: "\e687";
+	margin-left: -1.517578125em;
+	color: rgb(18, 17, 11);
+}
+.keeplogo-logo_KEEPSearch_vertical .path17:before {
+	content: "\e688";
+	margin-left: -1.517578125em;
+	color: rgb(18, 17, 11);
+}
+

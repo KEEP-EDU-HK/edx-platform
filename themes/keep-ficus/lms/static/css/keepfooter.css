@@ -1,0 +1,56 @@
+html {
+    font-size: 1em;
+}
+
+.keepfooter {
+    background: #f6f6f6;
+    padding: 1rem 0;
+    color: #333;
+    font-size: 0.875rem;
+}
+
+.keepfooter a {
+    color: #333;
+    text-decoration: none;
+}
+
+.keepfooter .col-md-2 {
+    margin-top: 1rem;
+}
+
+.keepfooter .col-md-2 a {
+    display: block;
+}
+
+.keepfooter i {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .keepfooter .col-md-2 {
+        margin-top: 0;
+    }
+
+    .keepfooter .col-md-2 a {
+        text-align: right;
+    }
+}
+
+.keepfooter .copyright {
+    text-align: left;
+    margin-top: 2rem;
+    font-size: 0.75rem;
+}
+
+.keepfooter .copyright2 {
+    color: #909090;
+	font-size: 0.73rem;
+}
+
+.edxLogo {
+    margin-top: 2.5rem;
+    text-align: right;
+    padding-right: 10px;
+}
