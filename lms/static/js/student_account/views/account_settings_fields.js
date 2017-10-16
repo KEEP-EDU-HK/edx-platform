@@ -158,7 +158,8 @@
                     data[this.options.emailAttribute] = this.model.get(this.options.emailAttribute);
 
                     var view = this;
-                    $.ajax({
+					window.location = view.options.linkHref;
+                    /*$.ajax({
                         type: 'POST',
                         url: view.options.linkHref,
                         data: data,
@@ -171,7 +172,7 @@
                             view.setMessageTimeout();
                             view.toggleDisableButton(false);
                         }
-                    });
+                    });*/
                 },
                 toggleDisableButton: function(disabled) {
                     var button = this.$('#u-field-link-' + this.options.valueAttribute);

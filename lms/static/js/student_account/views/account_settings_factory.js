@@ -6,9 +6,10 @@
         'js/student_account/models/user_preferences_model',
         'js/student_account/views/account_settings_fields',
         'js/student_account/views/account_settings_view',
-        'edx-ui-toolkit/js/utils/string-utils'
+        'edx-ui-toolkit/js/utils/string-utils',
+        'edx-ui-toolkit/js/utils/html-utils'
     ], function(gettext, $, _, Backbone, Logger, UserAccountModel, UserPreferencesModel,
-                 AccountSettingsFieldViews, AccountSettingsView, StringUtils) {
+                 AccountSettingsFieldViews, AccountSettingsView, StringUtils, HtmlUtils) {
         return function(
             fieldsData,
             ordersHistoryData,
@@ -23,8 +24,7 @@
         ) {
             var accountSettingsElement, userAccountModel, userPreferencesModel, aboutSectionsData,
                 accountsSectionData, ordersSectionData, accountSettingsView, showAccountSettingsPage,
-                showLoadingError, orderNumber, getUserField, userFields, timeZoneDropdownField, countryDropdownField,
-                emailFieldView;
+                showLoadingError, orderNumber, getUserField, userFields, additionalFields, timeZoneDropdownField, countryDropdownField;
 
             accountSettingsElement = $('.wrapper-account-settings');
 
@@ -34,37 +34,10 @@
             userPreferencesModel = new UserPreferencesModel();
             userPreferencesModel.url = userPreferencesApiUrl;
 
-            if (allowEmailChange) {
-                emailFieldView = {
-                    view: new AccountSettingsFieldViews.EmailFieldView({
-                        model: userAccountModel,
-                        title: gettext('Email Address'),
-                        valueAttribute: 'email',
-                        helpMessage: StringUtils.interpolate(
-                            gettext('The email address you use to sign in. Communications from {platform_name} and your courses are sent to this address.'),  // eslint-disable-line max-len
-                            {platform_name: platformName}
-                        ),
-                        persistChanges: true
-                    })
-                };
-            } else {
-                emailFieldView = {
-                    view: new AccountSettingsFieldViews.ReadonlyFieldView({
-                        model: userAccountModel,
-                        title: gettext('Email Address'),
-                        valueAttribute: 'email',
-                        helpMessage: StringUtils.interpolate(
-                            gettext('The email address you use to sign in. Communications from {platform_name} and your courses are sent to this address.  To change the email address, please contact {contact_email}.'),  // eslint-disable-line max-len
-                            {platform_name: platformName, contact_email: contactEmail}
-                        )
-                    })
-                };
-            }
-
             aboutSectionsData = [
                 {
                     title: gettext('Basic Account Information'),
-                    subtitle: gettext('These settings include basic information about your account. You can also specify additional information and see your linked social accounts on this page.'),  // eslint-disable-line max-len
+                    subtitle: HtmlUtils.HTML('These settings include information about your account. You can update your basic information at <a href="https://account.keep.edu.hk/account/profile">KEEP Profile</a>'),  // eslint-disable-line max-len
                     fields: [
                         {
                             view: new AccountSettingsFieldViews.ReadonlyFieldView({
@@ -78,18 +51,27 @@
                             })
                         },
                         {
-                            view: new AccountSettingsFieldViews.TextFieldView({
+                            view: new AccountSettingsFieldViews.ReadonlyFieldView({
                                 model: userAccountModel,
                                 title: gettext('Full Name'),
                                 valueAttribute: 'name',
                                 helpMessage: gettext(
-                                    'The name that is used for ID verification and appears on your certificates. Other learners never see your full name. Make sure to enter your name exactly as it appears on your government-issued photo ID, including any non-Roman characters.'  // eslint-disable-line max-len
-                                ),
-                                persistChanges: true
+                                    'The name that will appear on your certificates. Other learners never see your full name. To change this, edit your KEEP Profile.'  // eslint-disable-line max-len
+                                )
                             })
                         },
-                        emailFieldView,
                         {
+							view: new AccountSettingsFieldViews.ReadonlyFieldView({
+								model: userAccountModel,
+								title: gettext('Email Address'),
+								valueAttribute: 'email',
+								helpMessage: StringUtils.interpolate(
+									gettext('The email address you use to sign in. Communications from {platform_name} and your courses are sent to this address.'),  // eslint-disable-line max-len
+									{platform_name: platformName}
+								)
+							})
+						},
+					    {
                             view: new AccountSettingsFieldViews.PasswordFieldView({
                                 model: userAccountModel,
                                 title: gettext('Password'),
@@ -98,17 +80,50 @@
                                 emailAttribute: 'email',
                                 passwordResetSupportUrl: passwordResetSupportUrl,
                                 linkTitle: gettext('Reset Your Password'),
-                                linkHref: fieldsData.password.url,
+                                linkHref: 'https://account.keep.edu.hk/account/recovery',
                                 helpMessage: StringUtils.interpolate(
-                                    gettext('When you select "Reset Your Password", a message will be sent to the email address for your {platform_name} account. Click the link in the message to reset your password.'),  // eslint-disable-line max-len
+                                    gettext('When you select "Reset Your Password", you will be sent to the KEEP Account Recovery page.'),  // eslint-disable-line max-len
                                     {platform_name: platformName}
                                 )
                             })
                         },
                         {
+                            view: new AccountSettingsFieldViews.DropdownFieldView({
+                                model: userAccountModel,
+                                required: true,
+                                title: gettext('Country or Region'),
+                                valueAttribute: 'country',
+                                options: fieldsData.country.options,
+								editable: 'never'
+                            })
+                        },
+						{
+                            view: new AccountSettingsFieldViews.DropdownFieldView({
+                                model: userAccountModel,
+                                title: gettext('Gender'),
+                                valueAttribute: 'gender',
+                                options: fieldsData.gender.options,
+                                editable: 'never'
+                            })
+                        },
+                        {
+                            view: new AccountSettingsFieldViews.DropdownFieldView({
+                                model: userAccountModel,
+                                title: gettext('Year of Birth'),
+                                valueAttribute: 'year_of_birth',
+                                options: fieldsData.year_of_birth.options,
+                                editable: 'never'
+                            })
+                        } 
+                    ]
+                },
+                {
+                    title: gettext('Additional Information'),
+                    fields: [
+                        {
                             view: new AccountSettingsFieldViews.LanguagePreferenceFieldView({
                                 model: userPreferencesModel,
-                                title: gettext('Language'),
+                                title: gettext('Site Language'),
                                 valueAttribute: 'pref-lang',
                                 required: true,
                                 refreshPageOnSave: true,
@@ -121,12 +136,15 @@
                             })
                         },
                         {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
+                            view: new AccountSettingsFieldViews.LanguageProficienciesFieldView({
                                 model: userAccountModel,
-                                required: true,
-                                title: gettext('Country or Region'),
-                                valueAttribute: 'country',
-                                options: fieldsData.country.options,
+                                title: gettext('Preferred Language'),
+                                valueAttribute: 'language_proficiencies',
+								helpMessage: StringUtils.interpolate(
+                                    gettext('This will be visible to other users if you choose to show your Full profile'),  // eslint-disable-line max-len
+                                    {platform_name: platformName}
+                                ),
+                                options: fieldsData.preferred_language.options,
                                 persistChanges: true
                             })
                         },
@@ -144,45 +162,13 @@
                                 }],
                                 persistChanges: true
                             })
-                        }
-                    ]
-                },
-                {
-                    title: gettext('Additional Information'),
-                    fields: [
-                        {
+                        },
+						{
                             view: new AccountSettingsFieldViews.DropdownFieldView({
                                 model: userAccountModel,
                                 title: gettext('Education Completed'),
                                 valueAttribute: 'level_of_education',
                                 options: fieldsData.level_of_education.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                title: gettext('Gender'),
-                                valueAttribute: 'gender',
-                                options: fieldsData.gender.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.DropdownFieldView({
-                                model: userAccountModel,
-                                title: gettext('Year of Birth'),
-                                valueAttribute: 'year_of_birth',
-                                options: fieldsData.year_of_birth.options,
-                                persistChanges: true
-                            })
-                        },
-                        {
-                            view: new AccountSettingsFieldViews.LanguageProficienciesFieldView({
-                                model: userAccountModel,
-                                title: gettext('Preferred Language'),
-                                valueAttribute: 'language_proficiencies',
-                                options: fieldsData.preferred_language.options,
                                 persistChanges: true
                             })
                         }
@@ -199,7 +185,10 @@
             userFields = _.find(aboutSectionsData, function(section) {
                 return section.title === gettext('Basic Account Information');
             }).fields;
-            timeZoneDropdownField = getUserField(userFields, 'time_zone');
+			additionalFields = _.find(aboutSectionsData, function(section) {
+                return section.title === gettext('Additional Information');
+            }).fields;
+            timeZoneDropdownField = getUserField(additionalFields, 'time_zone');
             countryDropdownField = getUserField(userFields, 'country');
             timeZoneDropdownField.listenToCountryView(countryDropdownField);
 

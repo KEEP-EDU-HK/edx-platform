@@ -1,5 +1,5 @@
 <div class="field">
-    <span class="u-field-title field-label"><%- title %></span>
+    <label class="u-field-title field-label"><%- title %></label>
     <span class="u-field-value" id="u-field-value-<%- id %>" aria-describedby="u-field-message-help-<%- id %>"><b><%- value %></b></span>
 </div>
 <span class="u-field-message" id="u-field-message-<%- id %>">
