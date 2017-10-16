@@ -592,3 +592,6 @@ def account_settings_context(request):
         } for state in auth_states if state.provider.display_for_login or state.has_account]
 
     return context
+
+def saml_studio_redirect(request):
+    return redirect("//" + settings.CMS_BASE)
