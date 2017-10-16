@@ -383,7 +383,7 @@ def _get_source_address(course_id, course_title, course_language, truncate=True)
         from_addr_format = u'{name} {email}'.format(
             # Translators: Bulk email from address e.g. ("Physics 101" Course Staff)
             name=_('"{course_title}" Course Staff'),
-            email=u'<{course_name}-{from_email}>',
+            email=u'<{from_email}>',
         )
 
     def format_address(course_title_no_quotes):
@@ -491,6 +491,8 @@ def _send_course_email(entry_id, email_id, to_list, global_email_context, subtas
     # use the email from address in the CourseEmail, if it is present, otherwise compute it
     from_addr = course_email.from_addr if course_email.from_addr else \
         _get_source_address(course_email.course_id, course_title, course_language)
+
+    log.info(from_addr)
 
     # use the CourseEmailTemplate that was associated with the CourseEmail
     course_email_template = course_email.get_template()
