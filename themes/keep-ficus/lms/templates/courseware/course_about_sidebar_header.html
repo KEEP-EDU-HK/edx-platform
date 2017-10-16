@@ -1,0 +1,82 @@
+<%namespace name='static' file='../static_content.html'/>
+<%!
+import urllib
+from util.course import get_link_for_about_page, get_encoded_course_sharing_utm_params
+
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from django.conf import settings
+%>
+
+<header>
+  % if static.get_value('course_about_show_social_links', True):
+  <div class="social-sharing">
+    <div class="sharing-message">${_("Share with friends and family!")}</div>
+    ## TODO: this should probably be an overrideable block,
+    ##       or something allowing themes to do whatever they
+    ##       want here (and on this whole page, really).
+      <%
+        site_domain = static.get_value('site_domain', settings.SITE_NAME)
+        platform_name = static.get_platform_name()
+        share_window_name = 'shareWindow'
+        share_window_config = 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=640, height=480'
+
+        ## Translators: This text will be automatically posted to the student's
+        ## Twitter account. {url} should appear at the end of the text.
+        tweet_text = _("I just enrolled in {number} {title} through KEEP Open edX: {url}").format(
+            number=course.number,
+            title=course.display_name_with_default_escaped,
+            account=static.get_value('course_about_twitter_account', settings.PLATFORM_TWITTER_ACCOUNT),
+            url=u"http://{domain}{path}".format(
+                domain=site_domain,
+                path=reverse('about_course', args=[course.id.to_deprecated_string()])
+            )
+        ).replace(u" ", u"+")
+        tweet_action = u"http://twitter.com/intent/tweet?text={tweet_text}".format(tweet_text=tweet_text)
+
+        ## facebook_link = static.get_value('course_about_facebook_link', settings.PLATFORM_FACEBOOK_ACCOUNT)
+
+        ## Facebook account. {url} should appear at the end of the text.
+        ##facebook_text = _("{url}").format(
+          ## url=u"http://{domain}{path}".format(
+              ##  domain=site_domain,
+               ## path=reverse('about_course', args=[course.id.to_deprecated_string()])
+          ##  )
+        ##).replace(u"+", u"%2B")
+        ##facebook_link = u"http://facebook.com/sharer.php?u={facebook_text}".format(facebook_text=facebook_text)
+
+        share_url = get_link_for_about_page(course)
+        encoded_utm_parameters = get_encoded_course_sharing_utm_params()
+        share_window_name = 'shareWindow'
+        share_window_config = 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=640, height=480'
+
+        facebook_share_url = "{url}?{utm_params}".format(url=share_url.encode('utf-8'), utm_params=encoded_utm_parameters['facebook'])
+        share_text = _("I'm taking {course_name} online with KEEP Open edX. Check it out!").format(course_name=course.display_name_with_default_escaped)
+        query_params = urllib.urlencode((('u', facebook_share_url), ('quote', share_text.encode('utf-8')),))
+        facebook_url = 'https://www.facebook.com/sharer/sharer.php?{query}'.format(query=query_params)
+
+        email_subject = u"mailto:?subject={subject}&body={body}".format(
+            subject=_("Take a course with {platform} online").format(platform=platform_name),
+            body=_("I just enrolled in {number} {title} through {platform} {url}").format(
+                number=course.number,
+                title=course.display_name_with_default_escaped,
+                platform=platform_name,
+                url=u"http://{domain}{path}".format(
+                    domain=site_domain,
+                    path=reverse('about_course', args=[course.id.to_deprecated_string()]),
+                )
+            )
+        ).replace(u" ", u"%20")
+      %>
+      <a href="${tweet_action}" class="share" onclick="window.open('${tweet_action}', '${share_window_name}', '${share_window_config}'); return false;" target="_blank">
+        <span class="icon fa fa-twitter" aria-hidden="true"></span><span class="sr">${_("Tweet that you've enrolled in this course")}</span>
+      </a>
+      <a href="${facebook_url}" class="share" onclick="window.open('${facebook_url}', '${share_window_name}', '${share_window_config}'); return false;" target="_blank">
+        <span class="icon fa fa-thumbs-up" aria-hidden="true"></span><span class="sr">${_("Post a Facebook message to say you've enrolled in this course")}</span>
+      </a>
+      <a href="${email_subject}" class="share">
+        <span class="icon fa fa-envelope" aria-hidden="true"></span><span class="sr">${_("Email someone to say you've enrolled in this course")}</span>
+      </a>
+  </div>
+  % endif
+</header>
