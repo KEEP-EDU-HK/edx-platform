@@ -1,0 +1,42 @@
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+from datetime import datetime
+from django.conf import settings
+import pytz
+%>
+
+<div class="wrapper-footer wrapper">
+    <div class="keepfooter">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-md-6">
+			<i class="keeplogo-logo_KEEP_horizontal"></i>
+			<div>6/F, Hui Yeung Shing Building</div>
+			<div>The Chinese University of Hong Kong</div>
+			<div>Sha Tin, N.T. Hong Kong</div>
+		  </div>
+		  <div class="col-md-2">
+			<a href="https://keep.edu.hk/en/media-kit">Media Kit</a>
+			<a href="https://keep.edu.hk/en/faq">FAQ</a>
+			<a href="https://keep.edu.hk/en/terms">Terms &amp; Conditions</a>
+			<a href="https://keep.edu.hk/en/feedback" onclick="openFeedbackWindow($(this)); return false">Feedback</a>
+		  </div>
+		  <div class="col-md-2">
+			<a href="https://search.keep.edu.hk">KEEPSearch</a>
+			<a href="https://catalog.keep.edu.hk">KEEPCatalog</a>
+			<a href="https://course.keep.edu.hk">KEEPCourse</a>
+			<a href="https://poll.keep.edu.hk">KEEPoll</a>
+		  </div>
+		  <div class="col-md-2">
+			<a href="https://keep.edu.hk/en/about">About KEEP</a>
+			<a href="https://keep.edu.hk/en/news">News &amp; Events</a>
+			<a href="https://keep.edu.hk/en/team">Our Team</a>
+			<a href="https://keep.edu.hk/en/contact">Contact Us</a>
+		  </div>
+		</div>
+		<div class="row"><div class="copyright col-md-9"><span>Copyright © 2014-2017 KEEP. The Chinese University of Hong Kong. All rights reserved.</span><br><span class="copyright2">© KEEP Open edX. All rights reserved except where noted. EdX, Open edX and the edX and Open EdX logos are registered trademarks or trademarks of edX Inc.</span></div><div class="col-md-3 edxLogo"><a href="http://open.edx.org"><img src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png" alt="Powered by Open edX" width="62.5"></a></div></div>
+	  </div>
+	</div>
+</div>
+
