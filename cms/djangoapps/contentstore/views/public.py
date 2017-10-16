@@ -39,6 +39,9 @@ def login_page(request):
     """
     Display the login form.
     """
+    # Redirect to SAML Auth page
+    return redirect(settings.LMS_ROOT_URL + '/auth/login/tpa-saml/?auth_entry=login&next=%2Fsaml_redirect&idp=keep-auth')
+
     csrf_token = csrf(request)['csrf_token']
     if (settings.FEATURES['AUTH_USE_CERTIFICATES'] and
             ssl_get_cert_from_request(request)):
