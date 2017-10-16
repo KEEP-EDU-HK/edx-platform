@@ -506,7 +506,7 @@ def shib_login(request):
     else:
         # If we get here, the user has authenticated properly
         shib = {attr: request.META.get(attr, '').decode('utf-8')
-                for attr in ['REMOTE_USER', 'givenName', 'sn', 'mail', 'Shib-Identity-Provider', 'displayName']}
+                for attr in ['REMOTE_USER', 'givenName', 'sn', 'mail', 'Shib-Identity-Provider', 'displayName', 'username']}
 
         # Clean up first name, last name, and email address
         # TODO: Make this less hardcoded re: format, but split will work
@@ -517,7 +517,8 @@ def shib_login(request):
     # TODO: should we be logging creds here, at info level?
     log.info(u"SHIB creds returned: %r", shib)
 
-    fullname = shib['displayName'] if shib['displayName'] else u'%s %s' % (shib['givenName'], shib['sn'])
+    #fullname = shib['displayName'] if shib['displayName'] else u'%s %s' % (shib['givenName'], shib['sn'])
+    fullname = shib['username']
 
     redirect_to = get_next_url_for_login_page(request)
     retfun = functools.partial(_safe_postlogin_redirect, redirect_to, request.get_host())
