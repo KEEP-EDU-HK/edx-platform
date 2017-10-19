@@ -419,7 +419,7 @@ function validateMyForm()
       hasAvatar: avatarUrl !== '',
       avatarUrl: avatarUrl,
       loginUrl: '/login',
-      signupUrl: "/signup",
+      signupUrl: "https://testaccount.keep.edu.hk/account/signup",
       profileUrl: "/account/settings",
       dashboardUrl: "/dashboard",
       mycoursesUrl: "https://course.keep.edu.hk/mycourses/",
