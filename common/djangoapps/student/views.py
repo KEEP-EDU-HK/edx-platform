@@ -2828,7 +2828,7 @@ class LogoutView(TemplateView):
     template_name = 'logout.html'
 
     # Keep track of the page to which the user should ultimately be redirected.
-    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else 'https://auth.keep.testbot.xyz/idp/module.php/core/authenticate.php?as=keep-sql&logout'
+    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else 'https://testaccount.keep.edu.hk/idp/module.php/core/authenticate.php?as=keep-sql&logout'
 
     @property
     def target(self):
