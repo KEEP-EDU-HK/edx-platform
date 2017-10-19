@@ -3,6 +3,7 @@
 import json
 import logging
 import urlparse
+import urllib
 from datetime import datetime
 
 import pytz
@@ -19,6 +20,7 @@ from django.views.decorators.http import require_http_methods
 from django_countries import countries
 
 import third_party_auth
+from collections import OrderedDict
 from commerce.models import CommerceConfiguration
 from edxmako.shortcuts import render_to_response, render_to_string
 from lms.djangoapps.commerce.utils import EcommerceService
@@ -149,6 +151,13 @@ def login_and_registration_form(request, initial_mode="login"):
     }
 
     context = update_context_for_enterprise(request, context)
+
+    # Redirect to SAML Auth page
+    query_params = OrderedDict()
+    query_params['auth_entry'] = 'login'
+    query_params['next'] = redirect_to
+    query_params['idp'] = 'keep-auth'
+    return redirect(settings.LMS_ROOT_URL + '/auth/login/tpa-saml/?' + urllib.urlencode(query_params))
 
     return render_to_response('student_account/login_and_register.html', context)
 
