@@ -21,6 +21,10 @@ def signup(request):
     """
     Display the signup form.
     """
+
+    # Redirect to SAML signup page
+    return redirect('https://account.keep.edu.hk/account/signup')
+
     csrf_token = csrf(request)['csrf_token']
     if request.user.is_authenticated():
         return redirect('/course/')
