@@ -418,7 +418,7 @@ function validateMyForm()
       username: username,
       hasAvatar: avatarUrl !== '',
       avatarUrl: avatarUrl,
-      loginUrl: '/login',
+      loginUrl: '/sso_login', 
       signupUrl: "https://testaccount.keep.edu.hk/account/signup",
       profileUrl: "/account/settings",
       dashboardUrl: "/dashboard",

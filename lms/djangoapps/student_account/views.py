@@ -152,15 +152,24 @@ def login_and_registration_form(request, initial_mode="login"):
 
     context = update_context_for_enterprise(request, context)
 
+    return render_to_response('student_account/login_and_register.html', context)
+
+@require_http_methods(['GET'])
+@ensure_csrf_cookie
+def SSO_Login(request, initial_mode="login"):
+    """SSO Login"""
+    # Determine the URL to redirect to following login/registration/third_party_auth
+    redirect_to = get_next_url_for_login_page(request)
+    # If we're already logged in, redirect to the dashboard
+    if request.user.is_authenticated():
+        return redirect(redirect_to)
+
     # Redirect to SAML Auth page
     query_params = OrderedDict()
     query_params['auth_entry'] = 'login'
     query_params['next'] = redirect_to
     query_params['idp'] = 'keep-auth'
     return redirect(settings.LMS_ROOT_URL + '/auth/login/tpa-saml/?' + urllib.urlencode(query_params))
-
-    return render_to_response('student_account/login_and_register.html', context)
-
 
 @require_http_methods(['POST'])
 def password_change_request_handler(request):

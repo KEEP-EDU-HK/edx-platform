@@ -1036,4 +1036,7 @@ urlpatterns += (
 
     # SAML Redirect to Studio
     url(r'^saml_redirect$', 'student_account.views.saml_studio_redirect'),
+
+    # SSO - SAML login page redirection 
+    url(r'^sso_login$', 'student_account.views.SSO_Login'),
 )
