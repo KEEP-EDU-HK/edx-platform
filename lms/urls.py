@@ -19,6 +19,8 @@ from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 from openedx.features.enterprise_support.api import enterprise_enabled
 
+from student.views import LogoutView
+
 # Uncomment the next two lines to enable the admin:
 if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
     admin.autodiscover()
@@ -27,7 +29,7 @@ if settings.DEBUG or settings.FEATURES.get('ENABLE_DJANGO_ADMIN_SITE'):
 urlpatterns = (
     '',
 
-    url(r'^$', 'branding.views.index', name="root"),   # Main marketing page, or redirect to courseware
+    url(r'^[/]?$', 'branding.views.index', name="root"),   # Main marketing page, or redirect to courseware
 
     url(r'', include('student.urls')),
     # TODO: Move lms specific student views out of common code
@@ -1038,5 +1040,14 @@ urlpatterns += (
     url(r'^saml_redirect$', 'student_account.views.saml_studio_redirect'),
 
     # SSO - SAML login page redirection 
-    url(r'^sso_login$', 'student_account.views.SSO_Login'),
+    url(r'^sso_login[/]?$', 'student_account.views.SSO_Login'),
+	url(r'^shib-login[/]?$', 'student_account.views.SSO_Login'),
+    url(r'^sso_logout[/]?$', 'student_account.views.SSO_Logout'),
+    url(r'^logout/redirect[/]?$', 'student_account.views.logout_redirect'),
+    
+    #Download report - Secure Download
+    url(r'^reportdown/media/(?P<key>.*)/(?P<name>.*)$', 'instructor_task.views.download_report'),
+    
+    # User Profile Image 
+    url(r'^profile_img/(?P<username>.*)[/]?$', 'student_account.views.user_profile_image'),
 )
