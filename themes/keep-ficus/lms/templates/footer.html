@@ -11,8 +11,64 @@
 
 <div id="keepfooter"></div>
 
+    <style>
+        .view-student-notes .main-container .container {
+            min-width: 100%;
+        }
+        @media screen and (max-width: 1200px) {
+            .view-course-info .home {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            .view-course-info .home .page-header-main {
+                margin-left: 20px;
+            }
+        }
+        body.None .keepfooter {
+            margin-top: 51px;
+        }
+        /*body.None .wrapper-preview-menu {
+            padding-left: 25px;
+        }
+        body.view-in-course .wrapper-preview-menu .preview-menu {
+            padding-left: 50px;
+        }*/
+    </style>
+
 	<script>
         keepfooter("#666", 'en');
+        $(document).ready( function() {
+            setFooter();
+        });
+        
+        window.onresize = function(event) {
+            setFooter();
+        };
+        
+        function setFooter() {
+            var windowHeight = $(window).height();
+            var windowWidth = $(window).width();
+            var viewAsStaffHeight = $(".wrapper-preview-menu").height();
+            viewAsStaffHeight = viewAsStaffHeight == null ? 0 : 58;
+            var padding = 64;
+            var margin = 51;
+            var header = 48;
+            var accessHeight = (windowHeight * 0.102);
+            accessHeight = 0; 
+            var keepFooterHeight = windowWidth > 768 ? 196 : $(".keepfooter").height();
+            
+            var footerHeight = keepFooterHeight + padding + margin + header + accessHeight + viewAsStaffHeight;
+            $(".main-container").css("min-height", (windowHeight - footerHeight) + "px");
+            $(".view-wiki .content-wrapper").css("min-height", (windowHeight - footerHeight) + "px");
+            
+            /*var footerPosition = $(".keepfooter").position()['top'];
+
+            if (windowHeiht > footerPosition) {
+                $(".keepfooter").css("position", "absolute");
+                $(".keepfooter").css("bottom", "0");
+                $(".keepfooter").css("width", "100%");
+            }*/
+        }
     </script>
 
 % if include_dependencies:

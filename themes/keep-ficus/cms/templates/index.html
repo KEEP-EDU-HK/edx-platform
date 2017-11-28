@@ -20,7 +20,7 @@ from openedx.core.djangolib.markup import HTML, Text
 <%block name="content">
 <div class="wrapper-mast wrapper">
   <header class="mast has-actions">
-    <h1 class="page-header">${_("{studio_name} Home").format(studio_name=settings.STUDIO_SHORT_NAME)}</h1>
+    <h1 class="page-header">${_("Dashboard (KEEP Studio)").format(studio_name=settings.STUDIO_SHORT_NAME)}</h1>
 
     % if user.is_active:
     <nav class="nav-actions" aria-label="${_('Page Actions')}">
@@ -392,7 +392,7 @@ from openedx.core.djangolib.markup import HTML, Text
 
         <div class="notice notice-incontext notice-instruction notice-instruction-creationrights ui-toggle-target" id="instruction-creationrights">
           <div class="copy">
-            <p>${_('KEEP Open edX is an instance of Open edX provided by {studio_name}. Courses for which you are a team member appear above for you to edit, while course creation rights are maintained by KEEP. Our team will evaluate your request and provide you feedback soon.').format(
+            <p>${_('KEEP Open edX is an instance of Open edX provided by KEEP. Courses for which you are a team member appear above for you to edit, while course creation rights are maintained by KEEP. Our team will evaluate your request and provide you feedback soon.').format(
               studio_name=settings.STUDIO_NAME, platform_name=settings.PLATFORM_NAME)}</p>
           </div>
 
@@ -540,10 +540,11 @@ from openedx.core.djangolib.markup import HTML, Text
       % if course_creator_status=='disallowed_for_this_site' and settings.FEATURES.get('STUDIO_REQUEST_EMAIL',''):
       <div class="bit">
         <h3 class="title title-3">${_("Can I create courses in {studio_name}?").format(studio_name=settings.STUDIO_NAME)}</h3>
-        <p>${Text(_("In order to create courses in {studio_name}, you must {link_start}contact {platform_name} staff to help you create a course{link_end}.")).format(
+        <p>${Text(_("Please submit a course request at KEEPCourse {br} {link_start}Submit a course request{link_end}")).format(
             studio_name=settings.STUDIO_NAME,
             platform_name=settings.PLATFORM_NAME,
-            link_start=HTML('<a href="mailto:{email}">').format(email=settings.FEATURES.get('STUDIO_REQUEST_EMAIL','')),
+            br=HTML('<br/>'),
+            link_start=HTML('<a href="http://course.keep.edu.hk/submitCourse/">'),
             link_end=HTML("</a>"),
           )}</p>
       </div>
@@ -552,7 +553,13 @@ from openedx.core.djangolib.markup import HTML, Text
       % if course_creator_status == "unrequested":
       <div class="bit">
         <h3 class="title title-3">${_("Can I create courses in {studio_name}?").format(studio_name=settings.STUDIO_NAME)}</h3>
-        <p>${_('In order to create courses in {studio_name}, you must have course creator privileges to create your own course.').format(studio_name=settings.STUDIO_NAME)}</p>
+        <p>${Text(_("Please submit a course request at KEEPCourse {br} {link_start}Submit a course request{link_end}")).format(
+            studio_name=settings.STUDIO_NAME,
+            platform_name=settings.PLATFORM_NAME,
+            br=HTML('<br/>'),
+            link_start=HTML('<a href="http://course.keep.edu.hk/submitCourse/">'),
+            link_end=HTML("</a>"),
+          )}</p>
       </div>
 
       % elif course_creator_status == "denied":
