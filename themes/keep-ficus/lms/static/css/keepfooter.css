@@ -1,7 +1,3 @@
-html {
-    font-size: 1em;
-}
-
 .keepfooter {
     background: #f6f6f6;
     padding: 1rem 0;
@@ -28,13 +24,32 @@ html {
     margin-bottom: 1rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
     .keepfooter .col-md-2 {
         margin-top: 0;
     }
 
     .keepfooter .col-md-2 a {
         text-align: right;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .keepfooter .row .col-md-6,
+    .keepfooter .row .col-md-2, 
+    .keepfooter .row .col-md-9 , 
+    .keepfooter .row .col-md-3 {
+        width: 100% !important;
+        float: left !important;
+    }
+    
+    .keepfooter {
+		position: relative !important;
+		bottom: auto;
+	}
+    
+    .keepfooter .container {
+        min-width: 100px !important;
     }
 }
 
@@ -53,4 +68,56 @@ html {
     margin-top: 2.5rem;
     text-align: right;
     padding-right: 10px;
+}
+
+.keepfooter .row {
+    line-height: 20px;
+}
+
+.keepfooter .row .col-md-6 {
+    width: 50%;
+    float: left;
+}
+
+.keepfooter .row .col-md-2 {
+    width: 16.66%;
+    float: left;
+}
+
+.keepfooter .row .col-md-9 {
+    width: 75%;
+    float: left;
+}
+
+.keepfooter .row .col-md-3 {
+    width: 25%;
+    float: left;
+    padding-right: 0px;
+}
+
+.keepfooter .container {
+    box-sizing: border-box;
+    margin: 0 auto 0;
+    max-width: 1200px !important;
+    /* min-width: 760px !important;
+    width: 100% !important; */
+	padding: 0px 15px !important;
+}
+
+.keepfooter {
+	margin-top: 51px;
+	padding: 2rem 0 !important;
+    /*position: absolute;
+	width: 100%;
+	bottom: 0px;*/
+}
+
+body.None .keepfooter .container .row .edxLogo,
+body.discussion .keepfooter .container .row .edxLogo {
+    padding-bottom: 2.6rem;
+}
+
+body.None .keepfooter, 
+body.discussion .keepfooter {
+    margin-top: 3rem;
 }

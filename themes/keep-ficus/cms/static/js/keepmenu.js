@@ -303,11 +303,11 @@ function validateMyForm()
 (function() {
   var root, source;
 
-  source = "<style>\n    .nav-logo .menu-item,\n    .nav-logo .menu-item:visited {\n        color: {{color}};\n    }\n\n    .keepmenu a:hover,\n    .menu:hover .menu-item {\n        color: {{color}};\n    }\n\n    @media screen and (min-width: 801px) {\n      .menu-btn-outline {\n          margin-top: 4px;\n          padding: 8px 13px;\n          border: solid 2px;\n          border-color: {{color}};\n          background-color: white;\n          transition: all .3s;\n      }\n      .menu-btn-outline:hover {\n          color: #fff !important;\n          background-color: {{color}} !important;\n      }\n    }\n\n    @media screen and (max-width: 800px) {\n      .menu-btn-outline {\n          padding-top: 0px;\n          padding-bottom: 0px;\n          line-height: 3rem;\n      }\n    }\n\n    .menu-btn-outline {\n        font-weight: 600;\n    }\n\n    img.avatar {\n        width: 30px;\n   border-radius: 15px;\n      height: 30px;\n    }\n\n</style>\n\n<style>\n  .github-fork-ribbon {\n       display: none;\n       background-color: #f80;\n  }\n</style>\n\n<div class=\"github-fork-ribbon-wrapper right\">\n  <div class=\"github-fork-ribbon\">\n      <a href=\"#\">Staging</a>\n  </div>\n</div>\n\n<nav class=\"keepmenu\">\n  <div class=\"container\">\n    <div class=\"nav-logo\">\n      <div class=\"menu\">\n        <a class=\"menu-item\" href=\"{{appUrl}}\"><i class=\"keeplogo-logo_{{appName}}_horizontal\"></i></a>\n        <div class=\"submenu\">\n          {{#appList}}\n            {{#if url}}\n              <a class=\"submenu-item\" href=\"{{url}}\"><i class=\"keeplogo-logo_{{name}}_horizontal\"></i></a>\n            {{else}}\n              <span class=\"submenu-item\"><i class=\"keeplogo-logo_{{name}}_horizontal\"></i></span>\n            {{/if}}\n          {{/appList}}\n          <div style=\"height: 0.8rem\"></div>\n          <!-- <div class=\"follow&#45;keep\"> -->\n          <!--   <div>Follow KEEP:</div> -->\n          <!--   <a target=\"_blank\" href=\"https://www.facebook.com/keepeduhk\"><i class=\"fa fa&#45;facebook&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://plus.google.com/u/0/b/118326686239541805967/118326686239541805967/about\"><i class=\"fa fa&#45;google&#45;plus&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://www.linkedin.com/company/keep&#45;knowledge&#45;exchange&#45;and&#45;education&#45;platform&#45;?trk=top_nav_home\"><i class=\"fa fa&#45;linkedin&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://twitter.com/KEEP_HK\"><i class=\"fa fa&#45;twitter&#45;square\"></i></a> -->\n          <!-- </div> -->\n        </div>\n      </div>\n      <div class=\"hamburger\">\n        <i class=\"fa fa-bars\"></i>\n      </div>\n    </div>\n    <div class=\"nav-left\">\n      {{#menu}}\n        <div class=\"menu\">\n          <a class=\"menu-item\" href=\"{{url}}\">{{title}}</a>\n          {{#if submenu}}\n            <div class=\"submenu\">\n              {{#submenu}}\n                <a class=\"submenu-item\" href=\"{{url}}\">{{title}}</a>\n              {{/submenu}}\n            </div>\n          {{/if}}\n        </div>\n      {{/menu}}\n    </div>\n    <div class=\"nav-right\">\n      {{#if isLogined}}\n        <div class=\"menu\">\n          <a target=\"_blank\"  class=\"menu-item\" href=\"{{helpUrl}}\">\n     {{help}}\n          </a> </div>       <div class=\"menu\">\n          <a class=\"menu-item\" href=\"#\">\n          {{#if hasAvatar}}\n            <img src=\"{{avatarUrl}}\" alt=\"\" class=\"img-circle avatar\">\n          {{/if}}\n            {{username}}\n            <i class=\"fa fa-caret-down\"></i>\n          </a>\n          <div class=\"submenu\">\n            <a class=\"submenu-item\" href=\"{{profileUrl}}\">{{profile}}<span style=\"font-size: 10px\"> (Open edX)</span></a>\n          <a class=\"submenu-item\" href=\"{{accountSettingUrl}}\">{{accountSetting}}</a>\n      <hr/>      <a class=\"submenu-item\" href=\"{{dashboardUrl}}\">{{dashboard}}<span style=\"font-size: 10px\"> (Open edX)</span></a>\n            <a class=\"submenu-item\" href=\"{{mycoursesUrl}}\">{{mycourses}}</a>\n            <hr/>\n            <a class=\"submenu-item\" href=\"{{logoutUrl}}\">{{logout}}</a>\n          </div>\n        </div>\n      {{else}}\n        <div class=\"menu\">\n          <a class=\"menu-item\" href=\"{{loginUrl}}\">{{signin}}</a>\n        </div>\n        <div class=\"menu\">\n          <a class=\"btn menu-btn-outline\" href=\"{{signupUrl}}\">{{signup}}</a>\n        </div>\n      {{/if}}\n      </div>\n  </div>\n</nav>";
+  source = "<style>\n    .nav-logo .menu-item,\n    .nav-logo .menu-item:visited {\n        color: {{color}};\n    }\n\n    .keepmenu a:hover,\n    .menu:hover .menu-item {\n        color: {{color}};\n    }\n\n    @media screen and (min-width: 801px) {\n      .menu-btn-outline {\n          margin-top: 4px;\n          padding: 8px 13px;\n          border: solid 2px;\n          border-color: {{color}};\n          background-color: white;\n          transition: all .3s;\n      }\n      .menu-btn-outline:hover {\n          color: #fff !important;\n          background-color: {{color}} !important;\n      }\n    }\n\n    @media screen and (max-width: 800px) {\n      .menu-btn-outline {\n          padding-top: 0px;\n          padding-bottom: 0px;\n          line-height: 3rem;\n      }\n    }\n\n    .menu-btn-outline {\n        font-weight: 600;\n    }\n\n    img.avatar {\n        width: 30px;\n        height: 30px;\n    }\n\n</style>\n\n<style>\n  .github-fork-ribbon {\n       display: none;\n       background-color: #f80;\n  }\n</style>\n\n<div class=\"github-fork-ribbon-wrapper right\">\n  <div class=\"github-fork-ribbon\">\n      <a href=\"#\">Staging</a>\n  </div>\n</div>\n\n<nav class=\"keepmenu\">\n  <div class=\"container\">\n    <div class=\"nav-logo\">\n      <div class=\"menu\">\n        <a class=\"menu-item\" href=\"{{appUrl}}\" onclick=\"return false\"><i class=\"keeplogo-logo_{{appName}}_horizontal\"></i></a>\n        <div class=\"submenu\">\n          {{#appList}}\n            {{#if url}}\n              <a class=\"submenu-item\" href=\"{{url}}\"><i class=\"keeplogo-logo_{{name}}_horizontal\"></i></a>\n            {{else}}\n              <span class=\"submenu-item\"><i class=\"keeplogo-logo_{{name}}_horizontal\"></i></span>\n            {{/if}}\n          {{/appList}}\n          <div style=\"height: 0.8rem\"></div>\n          <!-- <div class=\"follow&#45;keep\"> -->\n          <!--   <div>Follow KEEP:</div> -->\n          <!--   <a target=\"_blank\" href=\"https://www.facebook.com/keepeduhk\"><i class=\"fa fa&#45;facebook&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://plus.google.com/u/0/b/118326686239541805967/118326686239541805967/about\"><i class=\"fa fa&#45;google&#45;plus&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://www.linkedin.com/company/keep&#45;knowledge&#45;exchange&#45;and&#45;education&#45;platform&#45;?trk=top_nav_home\"><i class=\"fa fa&#45;linkedin&#45;square\"></i></a> -->\n          <!--   <a target=\"_blank\" href=\"https://twitter.com/KEEP_HK\"><i class=\"fa fa&#45;twitter&#45;square\"></i></a> -->\n          <!-- </div> -->\n        </div>\n      </div>\n      <div class=\"hamburger\">\n        <i class=\"fa fa-bars\"></i>\n      </div>\n    </div>\n    <div class=\"nav-left\">\n      {{#menu}}\n        <div class=\"menu\">\n          <a class=\"menu-item\" href=\"{{url}}\">{{title}}</a>\n          {{#if submenu}}\n            <div class=\"submenu\">\n              {{#submenu}}\n                <a class=\"submenu-item\" href=\"{{url}}\">{{title}}</a>\n              {{/submenu}}\n            </div>\n          {{/if}}\n        </div>\n      {{/menu}}\n    </div>\n    <div class=\"nav-right\">\n      {{#if isLogined}}\n        <div class=\"menu\">\n          <a class=\"menu-item\" href=\"#\">\n          {{#if hasAvatar}}\n            <img src=\"{{avatarUrl}}\" alt=\"\" class=\"img-circle avatar\">\n          {{/if}}\n            {{username}}\n            <i class=\"fa fa-caret-down\"></i>\n          </a>\n          <div class=\"submenu\">\n            <a class=\"submenu-item\" href=\"{{profileUrl}}\">{{profile}}</a>\n          <a class=\"submenu-item\" href=\"{{accountSettingUrl}}\">{{accountSetting}}</a>\n            <a class=\"submenu-item\" href=\"{{dashboardUrl}}\">{{dashboard}}</a>\n            <a class=\"submenu-item\" href=\"{{mycoursesUrl}}\">{{mycourses}}</a>\n            <hr/>\n            <a class=\"submenu-item\" href=\"{{logoutUrl}}\">{{logout}}</a>\n          </div>\n        </div>\n      {{else}}\n        <div class=\"menu\">\n          <a class=\"menu-item\" href=\"{{loginUrl}}\">{{signin}}</a>\n        </div>\n        <div class=\"menu\">\n          <a class=\"btn menu-btn-outline\" href=\"{{signupUrl}}\">{{signup}}</a>\n        </div>\n      {{/if}}\n      <div class=\"nav-search\">\n        <div id=\"nav-searchbox\"></div>\n      </div>\n    </div>\n  </div>\n</nav>";
 
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-  root.keepmenu = function(appName, menu, username, loginUrl, logoutUrl, searchUrl, queryParamName, suggestionCollection, lang, avatarUrl, helpUrl, first_name) {
+  root.keepmenu = function(appName, menu, username, loginUrl, logoutUrl, searchUrl, queryParamName, suggestionCollection, lang, avatarUrl) {
     var Hi, Share, appInfo, appList, context, dashboard, html, keep, keepcatalog, keepcourse, keepedia, keepoll, keepository, keepsearch, logout, mycourses, profile, signIn, signUp, template;
     if (searchUrl == null) {
       searchUrl = null;
@@ -324,13 +324,6 @@ function validateMyForm()
     if (avatarUrl == null) {
       avatarUrl = '';
     }
-    if (helpUrl == null) {
-      helpUrl = '#';
-    }
-    if (first_name == null) {
-      first_name = 'No Name';
-    }
-    
     keep = {
       name: 'KEEP',
       url: 'http://keep.edu.hk',
@@ -343,7 +336,7 @@ function validateMyForm()
     };
     keepcourse = {
       name: 'KEEPCourse',
-      url: '/',
+      url: 'http://course.keep.edu.hk',
       color: '#6EAFDD'
     };
     keepsearch = {
@@ -391,7 +384,7 @@ function validateMyForm()
       cn: '个人档案'
     };
     accountSetting = {
-      en: 'Account',
+      en: 'Account Settings',
       hk: '帐户设置',
       cn: '帳戶設置'
     };
@@ -420,11 +413,6 @@ function validateMyForm()
       hk: '分享',
       cn: '分享'
     };
-    help = {
-      en: 'Help',
-      hk: '帮帮我',
-      cn: '幫幫我'
-    };
     context = {
       appName: appName,
       appUrl: appInfo[appName].url,
@@ -432,7 +420,7 @@ function validateMyForm()
       menu: menu,
       color: appInfo[appName].color,
       isLogined: username !== '',
-      username: first_name,
+      username: username,
       hasAvatar: avatarUrl !== '',
       avatarUrl: avatarUrl,
       loginUrl: '/sso_login', 
@@ -443,7 +431,6 @@ function validateMyForm()
       mycoursesUrl: "https://course.keep.edu.hk/mycourses/",
       logoutUrl: '/logout',
       searchUrl: searchUrl,
-      helpUrl: helpUrl,
       signin: signIn[lang],
       signup: signUp[lang],
       profile: profile[lang],
@@ -452,13 +439,12 @@ function validateMyForm()
       mycourses: mycourses[lang],
       logout: logout[lang],
       hi: Hi[lang],
-      share: Share[lang],
-      help: help[lang],
+      share: Share[lang]
     };
     template = Handlebars.compile(source);
     html = template(context);
     $('#keepmenu').after(html);
-    /*$('#nav-searchbox').initSearchBar({
+    $('#nav-searchbox').initSearchBar({
       component: suggestionCollection,
       componentPlaceholder: "Search " + appName,
       searchEngineServer: 'https://search.keep.edu.hk/',
@@ -471,11 +457,11 @@ function validateMyForm()
       CIBackgroundColor: 'white',
       SIBackgroundColor: 'white',
       onlySpotlight: searchUrl === null
-    });*/
+    });
     $('.hamburger').click(function() {
       return $('.nav-left, .nav-right').toggleClass('nav-show');
     });
-    /*$('.nav-right .menu:nth-child(2) .submenu a').click(function() {
+    $('.nav-right .menu:nth-child(2) .submenu a').click(function() {
       var height, left, options, top, url, width;
       url = $(this).attr('href') + document.URL;
       width = 575;
@@ -484,8 +470,8 @@ function validateMyForm()
       top = ($(window).height() - height) / 2;
       options = "width=" + width + ",height=" + height + ",top=" + top + ",left=" + left;
       window.open(url, '', options);
-      return false; 
-    });*/ 
+      return false;
+    });
     $('.nav-logo .menu-item').on('touchstart', function(e) {
       if (!$('.nav-logo .submenu').is(':visible')) {
         $('.nav-logo .submenu').show();

@@ -21,10 +21,10 @@
 .keepfooter i {
     font-size: 28.8px;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 768px) {
     .keepfooter .col-md-2 {
         margin-top: 0;
     }
@@ -34,19 +34,29 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .keepfooter .row .col-md-6,
+    .keepfooter .row .col-md-2,
+    .keepfooter .row .col-md-9 ,
+    .keepfooter .row .col-md-3 {
+        width: 100% !important;
+        float: left !important;
+    }
+}
+
 .keepfooter .copyright {
     text-align: left;
-    margin-top: 2rem;
+    margin-top: 3.2rem;
     font-size: 12px;
 }
 
 .keepfooter .copyright2 {
     color: #909090;
-	font-size: 11px;
+	font-size: 11.68px;
 }
 
 .edxLogo {
-    margin-top: 2.5rem;
+    margin-top: 42px;
     text-align: right;
     padding-right: 10px;
 }
@@ -78,6 +88,16 @@
 
 
 .keepfooter {
-    padding: 2rem 0 !important;
+    padding: 0px 15px !important;
     font-size: 14px !important;
+}
+
+.wrapper-footer.wrapper {
+    box-sizing: border-box;
+    margin: 0 auto 0;
+    max-width: 1200px !important;
+    /* min-width: 760px !important;
+    width: 100% !important; */
+    padding: 32px 0px;
+    margin-top: 1px;
 }

@@ -1,0 +1,648 @@
+hr {
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.keepmenu {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.keepmenu input::-ms-clear {
+    display: none;
+}
+
+.keepmenu a {
+    color: #363945;
+    text-decoration: none;
+}
+
+.nav-logo {
+    float: left;
+}
+
+.hamburger {
+    display: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.nav-left {
+    float: left;
+}
+
+.nav-right {
+    float: right;
+}
+
+.menu {
+    position: relative;
+    float: left;
+}
+
+.menu:hover .submenu {
+    display: block;
+}
+
+/* .nav-logo .menu:hover .submenu {
+    display: none;
+} */
+
+.nav-logo .menu {
+    margin-right: 0.1rem;
+}
+
+.menu-item {
+    font-weight: 600;
+    padding: 0em 1.6rem;
+    line-height: 4.8rem;
+    display: block;
+}
+
+.nav-logo .menu-item {
+    font-size: 2.88rem;
+    outline: none !important;
+}
+
+.nav-logo .menu-item i {
+    vertical-align: -2px;
+}
+
+#search-button-icon {
+    color: #363945 !important;
+}
+
+.submenu {
+    border-radius: 4px;
+    position: absolute;
+    top: 4.8rem;
+    display: none;
+    z-index: 100;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #f6f6f6;
+}
+
+.nav-right .menu:nth-child(2) .submenu {
+    right: 0;
+}
+
+.submenu-item {
+    font-weight: 600;
+    line-height: 3.2rem;
+    display: block;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    font-size: 14px;
+}
+
+.nav-logo .submenu-item {
+    font-size: 2.88rem;
+}
+
+.nav-logo .submenu-item {
+    padding: 0.32rem 1.6rem;
+}
+
+.nav-logo .submenu-item:first-child {
+    margin-top: 1.4rem;
+}
+
+.follow-keep {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1.5em;
+}
+
+.follow-keep div {
+    margin-bottom: 0.5rem;
+}
+
+.follow-keep i {
+    font-size: 1.5rem;
+}
+
+.nav-search {
+    float: right;
+    padding-top: 0.75rem;
+    padding-left: 0.6rem;
+}
+
+@media screen and (max-width: 800px) {
+    .nav-logo {
+        float: none;
+        height: 3rem;
+    }
+
+    .hamburger {
+        display: block;
+        float: right;
+        font-size: 2.4rem;
+        line-height: 4.8rem;
+        cursor: pointer;
+        padding-right: 20px;
+    }
+
+    .nav-left {
+        display: none !important;
+        float: none;
+    }
+
+    .nav-right {
+        display: none !important;
+        float: none;
+    }
+
+    .nav-show {
+        display: block !important;
+    }
+
+    .nav-left .menu,  .nav-right .menu {
+        float: none;
+        border-bottom: 1px solid #363945;
+        clear: both;
+    }
+
+    .nav-left .menu .submenu-item:last-child,  .nav-right .menu .submenu-item:last-child {
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-left .submenu, .nav-right .submenu {
+        display: block;
+        border: none;
+        background: none;
+        position: static;
+        margin-left: 1rem;
+    }
+
+    .nav-right .menu:last-child .submenu {
+        margin-left: 0;
+    }
+
+    .nav-right .follow-keep {
+        margin: 0;
+        padding: 0 0 1rem 1rem;
+    }
+
+    .nav-search {
+        float: right;
+        padding: 0.8rem;
+    }
+}
+
+/*!
+ * "Fork me on GitHub" CSS ribbon v0.1.1 | MIT License
+ * https://github.com/simonwhitaker/github-fork-ribbon-css
+*/
+
+/* Left will inherit from right (so we don't need to duplicate code) */
+.github-fork-ribbon {
+  /* The right and left classes determine the side we attach our banner to */
+  position: absolute;
+
+  /* Add a bit of padding to give some substance outside the "stitching" */
+  padding: 2px 0;
+
+  /* Set the base colour */
+  background-color: #a00;
+
+  /* Set a gradient: transparent black at the top to almost-transparent black at the bottom */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.15)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15));
+
+  /* Add a drop shadow */
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.5);
+
+  /* Set the font */
+  font: 700 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.github-fork-ribbon a,
+.github-fork-ribbon a:hover {
+  /* Set the text properties */
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  text-align: center;
+
+  /* Set the geometry. If you fiddle with these you'll also need
+     to tweak the top and right values in .github-fork-ribbon. */
+  width: 200px;
+  line-height: 20px;
+
+  /* Set the layout properties */
+  display: inline-block;
+  padding: 2px 0;
+
+  /* Add "stitching" effect */
+  border-width: 1px 0;
+  border-style: dotted;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.github-fork-ribbon-wrapper {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.github-fork-ribbon-wrapper.fixed {
+  position: fixed;
+}
+
+.github-fork-ribbon-wrapper.left {
+  left: 0;
+}
+
+.github-fork-ribbon-wrapper.right {
+  right: 0;
+}
+
+.github-fork-ribbon-wrapper.left-bottom {
+  position: fixed;
+  top: inherit;
+  bottom: 0;
+  left: 0;
+}
+
+.github-fork-ribbon-wrapper.right-bottom {
+  position: fixed;
+  top: inherit;
+  bottom: 0;
+  right: 0;
+}
+
+.github-fork-ribbon-wrapper.right .github-fork-ribbon {
+  top: 42px;
+  right: -43px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.left .github-fork-ribbon {
+  top: 42px;
+  left: -43px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+
+.github-fork-ribbon-wrapper.left-bottom .github-fork-ribbon {
+  top: 80px;
+  left: -43px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.github-fork-ribbon-wrapper.right-bottom .github-fork-ribbon {
+  top: 80px;
+  right: -43px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#searchBarKit{
+	position:relative;
+	float:none;
+	display: table-cell;
+	width:100%;
+	height:100%;
+	clear:both;
+}
+#search-button-icon{
+	position:relative;
+	font-size: 1.4em;
+	width:100%;
+	height:100%;
+	cursor: pointer;
+	z-index:1;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+	opacity: 1;
+	clear:both;
+}
+
+#search-button-icon.active{
+	opacity: 0;
+	z-index:0;
+}
+
+#searchBarTool{
+	clear:both;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+	position:relative;
+	height:2.1em;
+    margin-top : -1.85em;
+	margin-left : -0.05em;
+	border:1px solid #363945;
+}
+
+#searchBarTool.animation {
+    background-color : #ffffff;
+	width:10px;
+	opacity: 0;
+	z-index:0;
+}
+
+#searchBarTool.active {
+	width:15em;
+	opacity: 1;
+	z-index:1;
+}
+
+.top-search-box{
+	height:100%;
+	margin:0px;
+}
+
+.top-dropbox{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	position:relative;
+	padding-left:0.7em;
+	width:22%;
+	height:100%;
+	padding-top:0.2em;
+	cursor:pointer;
+	float:left;
+}
+
+#dropbtn{
+	font-size:1.5em;
+	color:#363945;
+}
+
+.top-drop-icon {
+	clear:both;
+	position:absolute;
+	left:15%;
+	height:100%;
+}
+
+.top-drop-icon div {
+    font-size: 0.7rem;
+    color:#363945;
+    cursor: pointer;
+	width:100%;
+	position:absolute;
+	top: 35%;
+	padding-right:0.2em;
+}
+
+.top-search-box-left{
+	position:absolute;
+	left:24%;
+	width:76%;
+	height:100%;
+	border-left: 1px solid #363945;
+}
+
+#top-search-box{
+	-webkit-border5dius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	width:100%;
+	height:100%;
+	font-size:1.1em;
+	outline: none;
+	margin-top:0.00em;
+	border:0;
+	padding-left:0.5em;
+}
+
+.top-search-box-clear {
+	clear:both;
+	position:absolute;
+	left:92%;
+	top: 0.35rem;
+}
+
+.top-search-box-clear span {
+    font-size: 1em;
+    color: #363945;
+    cursor: pointer;
+	width:100%;
+	height:100%;
+}
+
+.top-dropbox-1{
+	/*-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;*/
+	clear:both;
+	position:relative;
+	margin-left:0em;
+	width:25%;
+	height:100%;
+	padding:0.0em 0px 0px 0px;
+	text-align:center;
+	cursor:pointer;
+	border: 1px solid #363945;
+}
+
+#dropbtn-1{
+	font-size:1.5em;
+	margin-left:-0.2em;
+	color:#363945;
+}
+
+.autocomplete-suggestions {
+	border: 1px solid #999;
+	background: #FFF;
+	overflow: auto;
+ }
+.autocomplete-suggestion {
+	padding: 2px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+ }
+.autocomplete-selected {
+	background: #F0F0F0;
+ }
+.autocomplete-suggestions strong {
+	font-weight: bolder;
+	color: black;
+}
+.autocomplete-group {
+	padding: 2px 5px;
+}
+.autocomplete-group strong {
+	display: block;
+	border-bottom: 1px solid #000;
+}
+
+.keepmenu .container {
+    padding: 0px;
+}
+
+.keepmenu .container>div {
+    display: block;
+    border: none;
+    background: #fff;
+    box-shadow: none;
+    width: auto;
+}
+
+.keepfooter .container>div {
+    display: block;
+    border: none;
+    /* background: none !important; */
+    box-shadow: none;
+    width: auto;
+}
+
+.nav-right .menu .btn {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-right .menu {
+    line-height: 3em;
+}
+
+.nav-right .menu a.menu-item,
+.nav-left .menu a.menu-item {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.top-dropbox {
+    padding-top: 0.4em;
+    height: 83%;
+}
+
+#searchBarTool {
+    margin-top: -1.75em;
+    margin-left: 0px;
+}
+
+#top-search-box {
+    font-size: 14px;
+    font-style: normal;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+}
+
+.keepmenu {
+    height: 48px;
+}
+
+.keepmenu .container {
+    box-sizing: border-box;
+    margin: 0 auto 0;
+    min-width: 200px;
+    max-width: 1200px !important; 
+    /* width: 100% !important;
+	padding: 0px !important;*/
+}
+
+.nav-logo .menu .submenu {
+    display: none !important;
+}
+
+.nav-logo .menu-item,
+.nav-logo .menu-item:visited {
+    color: #6EAFDD;
+}
+
+.keepmenu a:hover,
+.menu:hover .menu-item {
+    color: #6EAFDD;
+}
+
+@media screen and (min-width: 801px) {
+  .menu-btn-outline {
+      margin-top: 4px;
+      padding: 8px 13px;
+      border: solid 2px;
+      border-color: #6EAFDD;
+      background-color: white;
+      transition: all .3s;
+  }
+  .menu-btn-outline:hover {
+      color: #fff !important;
+      background-color: #6EAFDD !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .menu-btn-outline {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      line-height: 3rem;
+  }
+}
+
+.menu-btn-outline {
+    font-weight: 600;
+}
+
+img.avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+    margin-top: 10px;
+    vertical-align: top;
+    border-radius: 15px;
+}
+
+.keepmenu .nav-left a i, .keepmenu .nav-right a i {
+    padding-left: 4px;
+    vertical-align: baseline;
+}
+
+body {
+    min-width: 200px;
+}

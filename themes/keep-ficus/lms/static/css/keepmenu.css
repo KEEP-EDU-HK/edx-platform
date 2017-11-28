@@ -152,25 +152,27 @@ hr {
         font-size: 1.5rem;
         line-height: 3rem;
         cursor: pointer;
+        padding-right: 20px;
     }
 
     .nav-left {
-        display: none;
+        display: none !important;
         float: none;
     }
 
     .nav-right {
-        display: none;
+        display: none !important;
         float: none;
     }
 
     .nav-show {
-        display: block;
+        display: block !important;
     }
 
     .nav-left .menu,  .nav-right .menu {
         float: none;
         border-bottom: 1px solid #363945;
+        clear: both;
     }
 
     .nav-left .menu .submenu-item:last-child,  .nav-right .menu .submenu-item:last-child {
@@ -524,11 +526,141 @@ hr {
     padding: 0px;
 }
 
-.keepmenu .container>div, 
-.keepfooter .container>div {
-    display: block !important;
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    width: auto !important;
+.keepmenu .container>div {
+    display: block;
+    border: none;
+    background: #fff;
+    box-shadow: none;
+    width: auto;
 }
+
+.keepfooter .container>div {
+    display: block;
+    border: none;
+    /* background: none !important; */
+    box-shadow: none;
+    width: auto;
+}
+
+.nav-right .menu .btn {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav-right .menu {
+    line-height: 3em;
+}
+
+.nav-right .menu a.menu-item,
+.nav-left .menu a.menu-item {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.top-dropbox {
+    padding-top: 0.4em;
+    height: 83%;
+}
+
+#searchBarTool {
+    margin-top: -1.75em;
+    margin-left: 0px;
+}
+
+#top-search-box {
+    font-size: 14px;
+    font-style: normal;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+}
+
+.keepmenu {
+    height: 48px;
+}
+
+.keepmenu .container {
+    box-sizing: border-box;
+    margin: 0 auto 0;
+    min-width: 200px;
+    max-width: 1200px !important;
+    /* width: 100% !important;
+	padding: 0px !important; */
+}
+
+.nav-logo .menu .submenu {
+    display: none !important;
+}
+
+body.view-in-course .keepmenu .container {
+    padding: 0px;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+nav.courseware .course-material ol.tabs.course-tabs,
+nav.discussion .course-material ol.tabs.course-tabs {
+    padding-top: 10px;
+}
+
+body.view-in-course nav.courseware .course-material .course-tabs {
+    padding-top: 0px;
+}
+
+nav.courseware .course-material ol.tabs.course-tabs li a, 
+nav.discussion .course-material ol.tabs.course-tabs li a {
+    color: #5e5e5e;
+}
+nav.courseware .course-material ol.tabs.course-tabs .tab, 
+nav.discussion .course-material ol.tabs.course-tabs .tab {
+    margin-right: 4.15px;
+}
+
+body.view-in-course nav.courseware .course-material ol.tabs.course-tabs .tab {
+    margin-right: 0px;
+}
+
+nav.courseware .course-material ol.tabs.course-tabs li a.active,
+nav.courseware .course-material ol.tabs.course-tabs li a:hover, 
+nav.discussion .course-material ol.tabs.course-tabs li a.active,
+nav.discussion .course-material ol.tabs.course-tabs li a:hover {
+    color: #065683;
+    border-bottom-color: #065683;
+}
+
+body.view-in-course .window-wrap {
+    min-width: 200px;
+}
+
+.wrapper-preview-menu .preview-actions .action-preview .action-preview-label {
+    color: #3c3c3c;
+    margin-bottom: 3px;
+    text-shadow: 0 1px rgba(255,255,255,0.4);
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrapper-preview-menu .preview-actions .action-preview .action-preview-select {
+    height: 21px;
+    font-family: Arial;
+    margin-top: 2px;
+}
+
+.wrapper-preview-menu  {
+   padding-bottom: 17px;
+}
+
+.edxnotes.wrapper-course-material .course-tabs,
+[class^='pdftextbook'].wrapper-course-material .course-tabs {
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+section.outside-app {
+    padding: 80px 20px;
+}
+

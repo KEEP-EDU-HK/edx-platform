@@ -1,0 +1,16 @@
+.view-util .content header h1 {
+    color: #646464;
+    font: normal 1.2em/1.2em Georgia,Cambria,"Times New Roman",Times,serif;
+    margin-bottom: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.view-util .content .content-primary p {
+    max-width: 600px;
+    margin: 0 auto;
+    font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
+}
+
+.view-util .content header {
+    border-bottom: none;
+}

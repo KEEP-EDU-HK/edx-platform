@@ -68,67 +68,6 @@ button#accounts-tab {
     margin-bottom: 70px !important;
 }
 
-.nav-right .menu .btn {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.42857143;
-    white-space: nowrap;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.nav-right .menu {
-    line-height: 3em;
-}
-
-.nav-right .menu a.menu-item,
-.nav-left .menu a.menu-item {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.top-dropbox {
-    padding-top: 0.4em;
-    height: 83%;
-}
-
-#searchBarTool {
-    margin-top: -1.75em;
-    margin-left: 0px;
-}
-
-#top-search-box {
-    font-size: 14px;
-    font-style: normal;
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 600;
-}
-
-.keepfooter .row {
-    line-height: 20px;
-}
-
-.keepfooter .row .col-md-6 {
-    width: 50%;
-    float: left;
-}
-
-.keepfooter .row .col-md-2 {
-    width: 16.66%;
-    float: left;
-}
-
-.keepfooter .row .col-md-9 {
-    width: 75%;
-    float: left;
-}
-
-.keepfooter .row .col-md-3 {
-    width: 25%;
-    float: left;
-    padding-right: 0px;
-}
-
 /*.wrapper-course-material {
     display: -webkit-box;
 	width: 100%
@@ -138,21 +77,6 @@ button#accounts-tab {
     background-color: #ffffff !important;
 }
 
-.keepmenu {
-    height: 48px;
-}
-
-.keepmenu .container,
-.keepfooter .container {
-    box-sizing: border-box;
-    margin: 0 auto 0;
-    max-width: 1200px !important;
-    min-width: 760px !important;
-    width: 100% !important;
-	padding: 0px !important;
-}
-
-.keepfooter {
-	margin-top: 3rem;
-	padding: 2rem 0 !important;
+.u-field-value {
+    width: 100%;
 }

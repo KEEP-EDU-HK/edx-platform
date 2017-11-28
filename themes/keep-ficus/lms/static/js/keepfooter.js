@@ -56,7 +56,7 @@
       hk: "新聞活動"
     };
     page6 = {
-      en: "Our Team",
+      en: "Team",
       cn: "团队介绍",
       hk: "團隊介紹"
     };
