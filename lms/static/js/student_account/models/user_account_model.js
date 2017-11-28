@@ -53,9 +53,15 @@
             },
 
             isAboveMinimumAge: function() {
-                var yearOfBirth = this.get('year_of_birth');
+                return true;
+				var yearOfBirth = this.get('year_of_birth');
                 var isBirthDefined = !(_.isUndefined(yearOfBirth) || _.isNull(yearOfBirth));
                 return isBirthDefined && !(this.get('requires_parental_consent'));
+            },
+			 
+			getBirthYear: function() {
+                return true;
+				var yearOfBirth = this.get('year_of_birth');
             }
         });
         return UserAccountModel;
