@@ -128,6 +128,8 @@ FEATURES = {
     # Enables ability to restrict enrollment in specific courses by the user account login method
     'RESTRICT_ENROLL_BY_REG_METHOD': False,
 
+    'BYPASS_ACTIVATION_EMAIL_FOR_EXTAUTH': True, 
+
     # enable analytics server.
     # WARNING: THIS SHOULD ALWAYS BE SET TO FALSE UNDER NORMAL
     # LMS OPERATION. See analytics.py for details about what
@@ -861,6 +863,10 @@ CMS_BASE = 'localhost:8001'
 SITE_NAME = "example.com"
 HTTPS = 'on'
 ROOT_URLCONF = 'lms.urls'
+# Setup support for proxy headers
+SECURE_SSL_REDIRECT = True
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # NOTE: Please set ALLOWED_HOSTS to some sane value, as we do not allow the default '*'
 
 # Platform Email
@@ -1185,6 +1191,9 @@ MIDDLEWARE_CLASSES = (
 
     'student.middleware.UserStandingMiddleware',
     'openedx.core.djangoapps.contentserver.middleware.StaticContentServer',
+
+    # KEEP auto SSO
+    'keep_auto_sso.middleware.KEEPMiddleware',
 
     # Adds user tags to tracking events
     # Must go before TrackMiddleware, to get the context set up

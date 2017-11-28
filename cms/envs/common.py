@@ -433,6 +433,9 @@ MIDDLEWARE_CLASSES = (
 
     # This must be last so that it runs first in the process_response chain
     'openedx.core.djangoapps.site_configuration.middleware.SessionCookieDomainOverrideMiddleware',
+    
+    # KEEP auto SSO
+    'keep_auto_sso.middleware.KEEPMiddlewareStudio',
 )
 
 # Clickjacking protection can be enabled by setting this to 'DENY'
