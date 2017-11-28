@@ -34,10 +34,21 @@
             userPreferencesModel = new UserPreferencesModel();
             userPreferencesModel.url = userPreferencesApiUrl;
 
+			var keep_profile = HtmlUtils.joinHtml(
+				HtmlUtils.interpolateHtml(
+					HtmlUtils.HTML('<a href="{settings_url}">'), {settings_url: "https://account.keep.edu.hk/account/profile"}
+				),
+				gettext('KEEP Profile'),
+				HtmlUtils.HTML('</a>')
+			);
+			
             aboutSectionsData = [
                 {
                     title: gettext('Basic Account Information'),
-                    subtitle: HtmlUtils.HTML('These settings include information about your account. You can update your basic information at <a href="https://account.keep.edu.hk/account/profile">KEEP Profile</a>'),  // eslint-disable-line max-len
+                    subtitle: HtmlUtils.interpolateHtml(
+                        gettext('These settings include information about your account. You can update your basic information at {keep_profile}'),  // eslint-disable-line max-len
+                        {'keep_profile': keep_profile}
+                    ),
                     fields: [
                         {
                             view: new AccountSettingsFieldViews.ReadonlyFieldView({
