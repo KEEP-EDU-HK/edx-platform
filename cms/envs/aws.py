@@ -135,6 +135,7 @@ LMS_ROOT_URL = ENV_TOKENS.get('LMS_ROOT_URL')
 # Note that FEATURES['PREVIEW_LMS_BASE'] gets read in from the environment file.
 
 SITE_NAME = ENV_TOKENS['SITE_NAME']
+CMS_BASE = ENV_TOKENS.get('CMS_BASE')
 
 ALLOWED_HOSTS = [
     # TODO: bbeggs remove this before prod, temp fix to get load testing running
