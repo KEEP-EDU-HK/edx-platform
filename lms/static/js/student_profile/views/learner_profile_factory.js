@@ -67,7 +67,7 @@
             var profileImageFieldView = new LearnerProfileFieldsView.ProfileImageFieldView({
                 model: accountSettingsModel,
                 valueAttribute: 'profile_image',
-                editable: editable === 'toggle',
+                editable: false,
                 messageView: messageView,
                 imageMaxBytes: options['profile_image_max_bytes'],
                 imageMinBytes: options['profile_image_min_bytes'],
@@ -88,14 +88,13 @@
                     screenReaderTitle: gettext('Country'),
                     titleVisible: false,
                     required: true,
-                    editable: editable,
+                    editable: 'never',
                     showMessages: false,
                     iconName: 'fa-map-marker',
-                    placeholderValue: gettext('Add Country'),
+                    placeholderValue: gettext('User Country'),
                     valueAttribute: 'country',
                     options: options.country_options,
-                    helpMessage: '',
-                    persistChanges: true
+                    helpMessage: ''
                 }),
                 new AccountSettingsFieldViews.LanguageProficienciesFieldView({
                     model: accountSettingsModel,
@@ -114,15 +113,13 @@
             ];
 
             var sectionTwoFieldViews = [
-                new FieldsView.TextareaFieldView({
+                new FieldsView.ReadonlyFieldView({
                     model: accountSettingsModel,
-                    editable: editable,
                     showMessages: false,
                     title: gettext('About me'),
                     placeholderValue: gettext("Tell other learners a little about yourself: where you live, what your interests are, why you're taking courses, or what you hope to learn."),
                     valueAttribute: 'bio',
                     helpMessage: '',
-                    persistChanges: true,
                     messagePosition: 'header'
                 })
             ];

@@ -18,9 +18,9 @@
             showNotificationMessage: function() {
                 var accountSettingsLink = HtmlUtils.joinHtml(
                     HtmlUtils.interpolateHtml(
-                        HtmlUtils.HTML('<a href="{settings_url}">'), {settings_url: this.options.accountSettingsPageUrl}
+                        HtmlUtils.HTML('<a href="{settings_url}">'), {settings_url: "https://account.keep.edu.hk/account/profile"}
                     ),
-                    gettext('Account Settings page.'),
+                    gettext('KEEP Profile.'),
                     HtmlUtils.HTML('</a>')
                 );
                 if (this.profileIsPrivate) {
@@ -41,6 +41,13 @@
                 else {
                     this._super('');
                 }
+                
+                this._super(
+                    HtmlUtils.interpolateHtml(
+                        gettext('You can update your basic information at {account_settings_page_link}'),  // eslint-disable-line max-len
+                        {'account_settings_page_link': accountSettingsLink}
+                    )
+                );
             },
 
             updateFieldValue: function() {

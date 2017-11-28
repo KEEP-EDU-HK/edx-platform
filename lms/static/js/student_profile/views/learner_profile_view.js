@@ -104,7 +104,7 @@
                     if (this.options.ownProfile) {
                         var fieldView = this.options.accountPrivacyFieldView,
                             settings = this.options.accountSettingsModel;
-                        fieldView.profileIsPrivate = !settings.get('year_of_birth');
+                        fieldView.profileIsPrivate = !settings.getBirthYear();
                         fieldView.requiresParentalConsent = settings.get('requires_parental_consent');
                         fieldView.isAboveMinimumAge = settings.isAboveMinimumAge();
                         fieldView.undelegateEvents();

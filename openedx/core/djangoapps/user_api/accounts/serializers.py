@@ -2,7 +2,10 @@
 Django REST Framework serializers for the User API Accounts sub-application
 """
 import logging
+import requests
+import json
 
+from requests.auth import HTTPBasicAuth
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -125,6 +128,24 @@ class UserReadOnlySerializer(serializers.Serializer):
                     "account_privacy": get_profile_visibility(user_profile, user, self.configuration)
                 }
             )
+        
+        # Call account.keep.edu.hk
+        try:
+            response = requests.get('https://account.keep.edu.hk/api/v1/users/' + user.email, auth=HTTPBasicAuth('5KfwkPHqcsJm3OT0JYjqQOGGT89vO4', ''))
+        
+            LOGGER.info(response.content)
+            res_json = json.loads(response.text)
+            data.update(
+                {
+                    "country": AccountLegacyProfileSerializer.convert_empty_to_None(res_json[0]['country']),
+                    "name": res_json[0]['fullname'],
+                    "gender": AccountLegacyProfileSerializer.convert_empty_to_None(res_json[0]['gender']),
+                    "bio": AccountLegacyProfileSerializer.convert_empty_to_None(res_json[0]['description']),  
+                    "year_of_birth": 'NA' if res_json[0]['birthday'][:4] == '0000' else res_json[0]['birthday'][:4]                    
+                }
+            )
+        except:
+            pass
 
         if self.custom_fields:
             fields = self.custom_fields
