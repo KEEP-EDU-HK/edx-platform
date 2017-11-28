@@ -296,12 +296,16 @@ def _update_context_with_user_info(context, user, user_certificate):
     """
     Updates context dictionary with user related info.
     """
+    
+    from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
+    
     user_fullname = user.profile.name
     context['username'] = user.username
     context['course_mode'] = user_certificate.mode
     context['accomplishment_user_id'] = user.id
     context['accomplishment_copy_name'] = user_fullname
     context['accomplishment_copy_username'] = user.username
+    context['profile_image_url'] = get_profile_image_urls_for_user(user)['medium']
 
     context['accomplishment_more_title'] = _("More Information About {user_name}'s Certificate:").format(
         user_name=user_fullname
