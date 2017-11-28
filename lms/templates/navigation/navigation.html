@@ -16,6 +16,7 @@ from branding import api as branding_api
 # app that handles site status messages
 from status.status import get_site_status_msg
 from openedx.core.djangoapps.lang_pref.api import header_language_selector_is_enabled, released_languages
+from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
 %>
 
 ## Provide a hook for themes to inject branding on top.
@@ -39,79 +40,43 @@ except:
     course_id = None
 site_status_msg = get_site_status_msg(course_id)
 %>
-% if site_status_msg:
-<div class="site-status">
-  <div class="inner-wrapper">
-    <span class="icon fa fa-warning"></span>
-    <p>${site_status_msg}</p>
-  </div>
-</div>
-% endif
 </%block>
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/css/vendors/font-awesome.css')}">
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/keeplogo/keeplogo.css')}">
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/css/keepmenu.css')}">
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/css/keepfooter.css')}">
+<!--<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/jquery.min.js')}"></script>-->
+<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/jquery.autocomplete.min.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/handlebars.min.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/keepmenu.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/keepfooter.js')}"></script>
 
-% if uses_bootstrap:
-  <header class="navigation-container header-global ${"slim" if course else ""}">
-    <nav class="navbar navbar-toggleable-md navbar-light">
-      <button class="navbar-toggler navbar-toggler-right mt-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <%include file="bootstrap/navbar-logo-header.html" args="online_help_token=online_help_token"/>
-      % if user.is_authenticated():
-        <%include file="bootstrap/navbar-authenticated.html" args="online_help_token=online_help_token"/>
-      % else:
-        <%include file="bootstrap/navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
-      % endif
-    </nav>
-  </header>
-% else:
-  <header id="global-navigation" class="header-global ${"slim" if course else ""}" >
-    <nav class="wrapper-header" aria-label="${_('Global')}">
-      <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
-      % if user.is_authenticated():
-        <%include file="navbar-authenticated.html" args="online_help_token=online_help_token"/>
-      % else:
-        <%include file="navbar-not-authenticated.html" args="online_help_token=online_help_token"/>
-      % endif
-      % if header_language_selector_is_enabled():
-        <% languages = released_languages() %>
-        % if len(languages) > 1:
-          <ol class="user">
-            <li class="primary">
-              <form action="/i18n/setlang/" method="post" class="settings-language-form" id="language-settings-form">
-                <input type="hidden" id="csrf_token" name="csrfmiddlewaretoken" value="${csrf_token}">
-                % if user.is_authenticated():
-                  <input title="preference api" type="hidden" class="url-endpoint" value="${reverse('preferences_api', kwargs={'username': user.username})}" data-user-is-authenticated="true">
-                % else:
-                  <input title="session update url" type="hidden" class="url-endpoint" value="${reverse('session_language')}" data-user-is-authenticated="false">
-                % endif
-                <label><span class="sr">${_("Choose Language")}</span>
-                  <select class="input select language-selector" id="settings-language-value" name="language">
-                    % for language in languages:
-                      % if language[0] == LANGUAGE_CODE:
-                        <option value="${language[0]}" selected="selected">${language[1]}</option>
-                      % else:
-                        <option value="${language[0]}" >${language[1]}</option>
-                      % endif
-                    % endfor
-                  </select>
-                </label>
-              </form>
-            </li>
-          </ol>
+<nav id="keepmenu"></nav>
+    <script>
+
+        var explore_course = { title: "Explore Courses", url: "https://course.keep.edu.hk/" };
+    
+        % if course:
+          course_url = "/courses/${course.id}/info"
+          explore_course = { title: "${course.display_number_with_default}: ${course.display_name_with_default}", url: course_url};
         % endif
-      % endif
-    </nav>
-  </header>
-% endif
-% if course:
-<!--[if lte IE 9]>
-<div class="ie-banner" aria-hidden="true">${Text(_('{begin_strong}Warning:{end_strong} Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.')).format(
-    begin_strong=HTML('<strong>'),
-    end_strong=HTML('</strong>'),
-    chrome_link=HTML('<a href="https://www.google.com/chrome" target="_blank">Chrome</a>'),
-    ff_link=HTML('<a href="http://www.mozilla.org/firefox" target="_blank">Firefox</a>'),
-)}</div>
-<![endif]-->
-% endif
+    
+        var menu = [explore_course];
+
+        // When logined
+		% if user.is_authenticated():
+		  <%
+		  self.real_user = getattr(user, 'real_user', user)
+		  username = self.real_user.username
+		  first_name = self.real_user.first_name
+		  profile_image_url = get_profile_image_urls_for_user(self.real_user)['medium']
+		  helpUrl = get_online_help_info(online_help_token)['doc_url']
+		  %>
+          keepmenu('KEEPCourse', menu, "${username}", 'loginUrl', 'logoutUrl', null, 'q', 'collection2', 'en', "${profile_image_url}", "${helpUrl}", "${first_name}");
+        // When not logined
+		% else:
+          keepmenu('KEEPCourse', menu, '', 'loginUrl', 'logoutUrl', 'searchUrl');
+		% endif
+    </script>
 
 <%include file="../help_modal.html"/>
