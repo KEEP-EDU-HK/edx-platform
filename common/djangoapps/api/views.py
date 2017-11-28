@@ -172,7 +172,7 @@ def get_enrolments(type, value=""):
 
   query = "SELECT " + select_clause + " FROM " + from_clause + " WHERE " + where_clause + " ORDER BY " + order_clause
 
-  conn = MySQLdb.connect("localhost","edxapp001","password","edxapp")
+  conn = MySQLdb.connect("10.11.50.16","edxapp001","password","edxapp")
   cursor = conn.cursor(MySQLdb.cursors.DictCursor)
   cursor.execute(query)
   results = list(cursor) # to array
@@ -191,7 +191,7 @@ def get_enrolments(type, value=""):
 
 def get_keepcourses():
 
-  mongoClient = MongoClient()
+  mongoClient = MongoClient(host="10.11.50.17")
   mongoDB = mongoClient.edxapp
   courses = mongoDB.modulestore.active_versions.find()
 
@@ -211,7 +211,7 @@ def get_keepcourses():
     temp['name'] = course['run']
 	
     # TODO: Change the below link in production deployment
-    temp['keep_course_link'] = 'https://ficus.keep.testbot.xyz/courses/course-v1:' + temp['org'] + '+' + temp['course'] + '+' + temp['name'] + '/about'
+    temp['keep_course_link'] = 'https://ficusedx.keep.edu.hk/courses/course-v1:' + temp['org'] + '+' + temp['course'] + '+' + temp['name'] + '/about'
     temp['ispublic'] = True
 
     # Institution Info
@@ -253,10 +253,10 @@ def get_keepcourses():
         if block['fields'].has_key('course_image'):
           temp['course_image'] = block['fields']['course_image']
           # TODO: Change the below link in production deployment
-          temp['keep_course_image'] = 'https://ficus.keep.testbot.xyz/asset-v1:' + temp['org'] + '+' + temp['course'] + '+' + temp['name'] + '+type@asset+block@' + block['fields']['course_image']
+          temp['keep_course_image'] = 'https://ficusedx.keep.edu.hk/asset-v1:' + temp['org'] + '+' + temp['course'] + '+' + temp['name'] + '+type@asset+block@' + block['fields']['course_image']
         else:
           # TODO: Change the below link in production deployment
-          temp['keep_course_image'] = 'https://ficus.keep.testbot.xyz/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg'
+          temp['keep_course_image'] = 'https://ficusedx.keep.edu.hk/asset-v1:edX+DemoX+Demo_Course+type@asset+block@images_course_image.jpg'
         # whether the course should be listed on KEEPCourse page
         # (NOTE: boolean value ['fields']['xml_attributes']['ispublic'] is deprecated)
         if block['fields'].has_key('catalog_visibility'):
