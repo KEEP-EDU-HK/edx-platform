@@ -1,0 +1,23 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%namespace name='static' file='../static_content.html'/>
+
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/css/vendors/font-awesome.css')}">
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/keeplogo/keeplogo.css')}">
+<link rel="stylesheet" type="text/css" href="${static.url('keep-ficus/css/keepfooter.css')}">
+<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/jquery.min.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/jquery.autocomplete.min.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/vendors/handlebars.min.js')}"></script>
+<script type="text/javascript" src="${static.url('keep-ficus/js/keepfooter.js')}"></script>
+
+<div class="wrapper-header" style="padding-top: 0.25rem;padding-bottom: 0.25rem;">
+
+    <header class="header-app" role="banner">
+        <h1 class="header-app-title">
+            <a class="logo" href="${logo_url}" style="font-size: 30px;color: #6EAFDD;width: 9.75rem;">
+                <i class="keeplogo-logo_KEEPCourse_horizontal"></i>
+            </a>
+            <span class="sr-only">${logo_subtitle}</span>
+        </h1>
+    </header>
+
+</div>

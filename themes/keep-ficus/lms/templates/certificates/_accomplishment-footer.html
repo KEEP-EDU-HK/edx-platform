@@ -1,0 +1,66 @@
+<div class="wrapper-footer" style="padding: 0px;margin-bottom: 0px;">
+
+    <div id="keepfooter"></div>
+
+	<script>
+        keepfooter("#666", 'en');
+        $( document ).ready(function() {
+            var windowHeight = $(window).height();
+            var padding = 64;
+            var margin = 48;
+            var header = 48;
+            var accessHeight = (windowHeight * 0.102);
+            accessHeight = 0; 
+            var footerHeight = $(".keepfooter").height() + padding + margin + header + accessHeight;
+            $(".wrapper-content.status-invalid").css("min-height", (windowHeight - footerHeight) + "px");
+            
+            /*var footerPosition = $(".keepfooter").position()['top'];
+
+            if (windowHeiht > footerPosition) {
+                $(".keepfooter").css("position", "absolute");
+                $(".keepfooter").css("bottom", "0");
+                $(".keepfooter").css("width", "100%");
+            }*/
+        });
+    </script>
+    <style>
+        .keepfooter {
+            margin-top: 0px;
+        }
+        .layout-accomplishment .wrapper-introduction {
+            padding-bottom: 3.5rem;
+            padding-top:2.5rem;
+            margin-bottom: 0px;
+            background: #f5f5f5;
+        }
+        .hd-2.emphasized {
+            width: 100%;
+        }
+        .wrapper-header {
+            margin-bottom: 0px;
+        }
+        .wrapper-banner-user {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .wrapper-content.status-invalid .content-main {
+            padding: 80px 20px !important;
+            text-align: center;
+            width: 100% !important;
+        }
+
+        .wrapper-content.status-invalid .content-main h2.title {
+            color: #646464;
+            font: normal 1.2em/1.2em Georgia,Cambria,"Times New Roman",Times,serif;
+            margin-bottom: 40px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper-content.status-invalid .content-main p {
+            max-width: 768px;
+            margin: 0 auto;
+            font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
+        }
+    </style>
+
+</div>
