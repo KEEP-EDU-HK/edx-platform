@@ -7,11 +7,13 @@ from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.files.storage import get_storage_class
 from django.contrib.staticfiles.storage import staticfiles_storage
-
+from django.db import models
+import logging
 from student.models import UserProfile
 from ..errors import UserNotFound
 from openedx.core.djangoapps.site_configuration import helpers as configuration_helpers
 
+log = logging.getLogger(__name__)
 
 PROFILE_IMAGE_FILE_EXTENSION = 'jpg'   # All processed profile images are converted to JPEGs
 
@@ -44,16 +46,30 @@ def _get_profile_image_filename(name, size, file_extension=PROFILE_IMAGE_FILE_EX
     return '{name}_{size}.{file_extension}'.format(name=name, size=size, file_extension=file_extension)
 
 
-def _get_profile_image_urls(name, storage, file_extension=PROFILE_IMAGE_FILE_EXTENSION, version=None):
+def _get_profile_image_urls(name, storage, file_extension=PROFILE_IMAGE_FILE_EXTENSION, version=None, user=None):
     """
     Returns a dict containing the urls for a complete set of profile images,
     keyed by "friendly" name (e.g. "full", "large", "medium", "small").
     """
     def _make_url(size):  # pylint: disable=missing-docstring
-        url = storage.url(
-            _get_profile_image_filename(name, size, file_extension=file_extension)
-        )
-        return '{}?v={}'.format(url, version) if version is not None else url
+        class ExtAuthMap(models.Model):
+            id = models.IntegerField()
+            enckeepid = models.CharField(max_length=255)
+ 
+        extauth = ExtAuthMap.objects.raw('SELECT id, HEX(AES_ENCRYPT(external_id, "KfY8WfuMyS8Futwpod!d")) AS enckeepid FROM external_auth_externalauthmap WHERE external_email = %s LIMIT 1',[user.email])
+
+        if len(list(extauth)) > 0: 
+            return "https://account.keep.edu.hk/api/pub/picture/" + extauth[0].enckeepid;
+        else:
+            url = storage.url(
+                _get_profile_image_filename(name, size, file_extension=file_extension)
+            )
+            return '{}?v={}'.format(url, version) if version is not None else url
+		
+		#url = storage.url(
+        #    _get_profile_image_filename(name, size, file_extension=file_extension)
+        #)
+        #return '{}?v={}'.format(url, version) if version is not None else url
 
     return {size_display_name: _make_url(size) for size_display_name, size in settings.PROFILE_IMAGE_SIZES_MAP.items()}
 
@@ -93,13 +109,14 @@ def get_profile_image_urls_for_user(user, request=None):
                 _make_profile_image_name(user.username),
                 get_profile_image_storage(),
                 version=user.profile.profile_image_uploaded_at.strftime("%s"),
+                user=user,
             )
         else:
-            urls = _get_default_profile_image_urls()
+            urls = _get_default_profile_image_urls(user)
     except UserProfile.DoesNotExist:
         # when user does not have profile it raises exception, when exception
         # occur we can simply get default image.
-        urls = _get_default_profile_image_urls()
+        urls = _get_default_profile_image_urls(user)
 
     if request:
         for key, value in urls.items():
@@ -108,7 +125,7 @@ def get_profile_image_urls_for_user(user, request=None):
     return urls
 
 
-def _get_default_profile_image_urls():
+def _get_default_profile_image_urls(user):
     """
     Returns a dict {size:url} for a complete set of default profile images,
     used as a placeholder when there are no user-submitted images.
@@ -119,6 +136,7 @@ def _get_default_profile_image_urls():
         configuration_helpers.get_value('PROFILE_IMAGE_DEFAULT_FILENAME', settings.PROFILE_IMAGE_DEFAULT_FILENAME),
         staticfiles_storage,
         file_extension=settings.PROFILE_IMAGE_DEFAULT_FILE_EXTENSION,
+        user=user,
     )
 
 
