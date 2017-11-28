@@ -109,6 +109,7 @@ from util.file import (
 )
 from util.json_request import JsonResponse, JsonResponseBadRequest
 from util.views import require_global_staff
+from urllib import urlencode
 
 from .tools import (
     dump_module_extensions,
@@ -2348,12 +2349,14 @@ def list_report_downloads(_request, course_id):
     """
     List grade CSV files that are available for download for this course.
     """
+    url_suffix = '?' + urlencode({'cid': course_id})
     course_id = SlashSeparatedCourseKey.from_deprecated_string(course_id)
     report_store = ReportStore.from_config(config_name='GRADES_DOWNLOAD')
-
+    url_prefix = '/reportdown'
+    
     response_payload = {
         'downloads': [
-            dict(name=name, url=url, link=HTML('<a href="{}">{}</a>').format(HTML(url), Text(name)))
+            dict(name=name, url=(url_prefix+url+url_suffix), link=HTML('<a href="{}">{}</a>').format(HTML(url_prefix+url+url_suffix), Text(name)))
             for name, url in report_store.links_for(course_id)
         ]
     }

@@ -5,6 +5,7 @@ import logging
 from celery.states import FAILURE, READY_STATES, REVOKED
 from django.http import HttpResponse
 from django.utils.translation import ugettext as _
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from lms.djangoapps.instructor_task.api_helper import get_status_from_instructor_task, get_updated_instructor_task
 from lms.djangoapps.instructor_task.models import PROGRESS
@@ -229,3 +230,38 @@ def get_task_completion_info(instructor_task):
         student=student
     )
     return (succeeded, message)
+
+@ensure_csrf_cookie
+def download_report(request, key="", name=""):
+    """
+    Download data report.
+    """
+    import os
+    from courseware.courses import get_course_by_id
+    from courseware.access import has_access
+    #from util.json_request import JsonResponse, JsonResponseBadRequest
+    from opaque_keys.edx.locations import SlashSeparatedCourseKey
+    from django.http import HttpResponseForbidden, Http404, HttpResponse
+    from django.conf import settings
+    
+    cid = request.GET.get('cid') if request.GET.get('cid') else ''
+    if cid == '' or key == '' or name == '':
+        raise Http404()
+        
+    course_key = SlashSeparatedCourseKey.from_deprecated_string(cid)
+    course = get_course_by_id(course_key, depth=0)
+    
+    if request.user and request.user.is_authenticated() and bool(has_access(request.user, 'staff', course)):
+        # Create the HttpResponse object with the appropriate CSV header.
+        config_name = 'GRADES_DOWNLOAD'
+        config = getattr(settings, config_name, {})
+        loc = config.get('STORAGE_KWARGS').get('location')
+        path = loc + '/' + key + '/' + name
+        
+        data = open(path,'r').read()
+        response = HttpResponse(data, content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="' + name + '"'
+        
+        return response
+        
+    raise Http404()
