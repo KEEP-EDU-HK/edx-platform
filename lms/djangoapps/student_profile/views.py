@@ -87,7 +87,7 @@ def learner_profile_context(request, profile_username, user_is_staff):
             'has_preferences_access': (logged_in_user.username == profile_username or user_is_staff),
             'own_profile': own_profile,
             'country_options': list(countries),
-            'find_courses_url': marketing_link('COURSES'),
+            'find_courses_url': "https://course.keep.edu.hk/mycourses/",
             'language_options': settings.ALL_LANGUAGES,
             'badges_logo': staticfiles_storage.url('certificates/images/backpack-logo.png'),
             'badges_icon': staticfiles_storage.url('certificates/images/ico-mozillaopenbadges.png'),

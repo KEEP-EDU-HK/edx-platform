@@ -6,7 +6,7 @@ define(['underscore'], function(_) {
     var BADGES_API_URL = '/api/badges/v1/assertions/user/student/';
     var IMAGE_UPLOAD_API_URL = '/api/profile_images/v0/staff/upload';
     var IMAGE_REMOVE_API_URL = '/api/profile_images/v0/staff/remove';
-    var FIND_COURSES_URL = '/courses';
+    var FIND_COURSES_URL = 'https://course.keep.edu.hk/';
     var PASSWORD_RESET_SUPPORT_LINK = 'https://support.edx.org/hc/en-us/articles/206212088-What-if-I-did-not-receive-a-password-reset-message-'; // eslint-disable-line max-len
     var PLATFORM_NAME = 'edX';
     var CONTACT_EMAIL = 'info@example.com';
