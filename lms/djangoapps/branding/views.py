@@ -11,7 +11,7 @@ from django.shortcuts import redirect
 from django.utils import translation
 from django.utils.translation.trans_real import get_supported_language_variant
 from django.views.decorators.cache import cache_control
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 import branding.api as branding_api
 import courseware.views.views
@@ -25,7 +25,7 @@ from util.json_request import JsonResponse
 log = logging.getLogger(__name__)
 
 
-@ensure_csrf_cookie
+@csrf_exempt
 @cache_if_anonymous()
 def index(request):
     '''
