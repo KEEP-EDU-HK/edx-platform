@@ -17,7 +17,7 @@ from student.models import (
     UserProfile, Registration, EntranceExamConfiguration,
     ManualEnrollmentAudit, UNENROLLED_TO_ALLOWEDTOENROLL, ALLOWEDTOENROLL_TO_ENROLLED,
     ENROLLED_TO_ENROLLED, ENROLLED_TO_UNENROLLED, UNENROLLED_TO_ENROLLED,
-    UNENROLLED_TO_UNENROLLED, ALLOWEDTOENROLL_TO_UNENROLLED, DEFAULT_TRANSITION_STATE
+    UNENROLLED_TO_UNENROLLED, ALLOWEDTOENROLL_TO_UNENROLLED, DEFAULT_TRANSITION_STATE, EnrollmentClosedError, CourseFullError
 )
 from opaque_keys.edx.locations import SlashSeparatedCourseKey
 
@@ -52,7 +52,7 @@ def get_enrollment_period(course_id):
 
   query = "SELECT " + select_clause + " FROM " + from_clause + " WHERE " + where_clause
 
-  conn = MySQLdb.connect("localhost","edxapp001","password","edxapp")
+  conn = MySQLdb.connect("10.11.50.16","edxapp001","password","edxapp")
   cursor = conn.cursor(MySQLdb.cursors.DictCursor)
   cursor.execute(query)
   results = list(cursor) # to array
@@ -101,9 +101,23 @@ def auto_enrol(request):
   }
 
   if user != None:
-    enrol_obj = enrol_user(user, course_id)
+    try: 
+      enrol_obj = enrol_user(user, course_id)
+    except CourseFullError:
+      results = {
+        'error': True,
+        'description': 'Course enrolment full. Please contact info@keep.edu.hk',
+      }
+      return JsonResponse(results)
+    except EnrollmentClosedError:
+      results = {
+        'error': True,
+        'description': 'Not allowed to enrol in course, might be enrolment closed or invitation only or not yet started. Please contact info@keep.edu.hk',
+      }
+      raise KeyError
+      #return JsonResponse(results)
     # TODO: Change the URL in production deployment
-    redirect_url = 'https://ficus.keep.testbot.xyz/courses/'+course_id +'/info'
+    redirect_url = 'https://ficusedx.keep.edu.hk/courses/'+course_id +'/info'
     return redirect(redirect_url);
 
   return JsonResponse(results)
@@ -137,9 +151,17 @@ def enrol_user(user, course_id):
 
   course_id = SlashSeparatedCourseKey.from_deprecated_string(course_id)
   # enrol and emit event to tracker
-  enrollment_obj = CourseEnrollment.enroll(user, course_id)
-  profile = UserProfile(user=user)
-
+  try: 
+    enrollment_obj = CourseEnrollment.enroll(user, course_id,check_access=True)
+    profile = UserProfile(user=user)
+  except EnrollmentClosedError:
+    raise EnrollmentClosedError
+  except CourseFullError:
+    raise CourseFullError
+  except:
+    enrollment_obj = None
+    pass
+    
   reason = 'Enrolling via auto enrol api'
   manual_enroll_audit = ManualEnrollmentAudit.create_manual_enrollment_audit(
     user,
@@ -180,5 +202,5 @@ def get_client_ip(request):
 
 def is_in_keep_ip_range(ip):
   #TODO: Change in actual production server to prevent unauthorized access
-  #return (ip[:8] in ('10.11.0.', '10.11.1.', '10.11.2.', '10.11.3.', '10.11.4.', '10.11.5.'))
-  return True
+  return (ip[:8] in ('10.11.0.', '10.11.1.', '10.11.2.', '10.11.3.', '10.11.4.', '10.11.5.'))
+  #return True
