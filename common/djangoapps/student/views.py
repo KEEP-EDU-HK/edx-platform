@@ -2828,7 +2828,7 @@ class LogoutView(TemplateView):
     template_name = 'logout.html'
 
     # Keep track of the page to which the user should ultimately be redirected.
-    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else 'https://testaccount.keep.edu.hk/idp/module.php/core/authenticate.php?as=keep-sql&logout'
+    default_target = reverse_lazy('cas-logout') if settings.FEATURES.get('AUTH_USE_CAS') else '/sso_logout'
 
     @property
     def target(self):
@@ -2838,12 +2838,17 @@ class LogoutView(TemplateView):
         If it is not specified, we will use the default target url.
         """
         target_url = self.request.GET.get('redirect_url')
+        log.info("************** HTTP HOST LOGOUT ********************")
+        log.info(self.request.META.get('HTTP_HOST'))
 
         if target_url and is_safe_url(target_url, self.request.META.get('HTTP_HOST')):
             return target_url
         else:
-            return self.default_target
-
+            get_param = ""
+            if self.request.META.get('HTTP_HOST') == settings.CMS_BASE:
+                get_param = "?studio=1"
+            return settings.LMS_ROOT_URL + self.default_target + get_param
+            
     def dispatch(self, request, *args, **kwargs):  # pylint: disable=missing-docstring
         # We do not log here, because we have a handler registered to perform logging on successful logouts.
         request.is_from_logout = True
