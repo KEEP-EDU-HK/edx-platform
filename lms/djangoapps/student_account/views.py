@@ -15,7 +15,7 @@ from django.core.urlresolvers import resolve, reverse
 from django.http import HttpRequest, HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.shortcuts import redirect
 from django.utils.translation import ugettext as _
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django_countries import countries
 
@@ -44,6 +44,8 @@ from third_party_auth import pipeline
 from third_party_auth.decorators import xframe_allow_whitelisted
 from util.bad_request_rate_limiter import BadRequestRateLimiter
 from util.date_utils import strftime_localized
+from openedx.core.djangoapps.user_api.accounts.image_helpers import get_profile_image_urls_for_user
+from student.models import get_user_by_username_or_email
 
 AUDIT_LOG = logging.getLogger("audit")
 log = logging.getLogger(__name__)
@@ -159,7 +161,7 @@ def login_and_registration_form(request, initial_mode="login"):
 def SSO_Login(request, initial_mode="login"):
     """SSO Login"""
     # Determine the URL to redirect to following login/registration/third_party_auth
-    redirect_to = get_next_url_for_login_page(request)
+    redirect_to = request.GET.get('next') if request.GET.get('next') else '/'
     # If we're already logged in, redirect to the dashboard
     if request.user.is_authenticated():
         return redirect(redirect_to)
@@ -171,6 +173,88 @@ def SSO_Login(request, initial_mode="login"):
     query_params['idp'] = 'keep-auth'
     return redirect(settings.LMS_ROOT_URL + '/auth/login/tpa-saml/?' + urllib.urlencode(query_params))
 
+@require_http_methods(['GET'])
+def SSO_Logout(request):
+    """SSO Logout"""
+    from onelogin.saml2.auth import OneLogin_Saml2_Auth
+    from social_core.backends.saml import SAMLAuth, SAMLIdentityProvider
+    from third_party_auth.saml import SAMLAuthBackend 
+    
+    objSAMLAuthBackend = SAMLAuthBackend()
+    objSAMLAuth = SAMLAuth()
+    
+    idp_name = 'keep-auth'
+    idp = objSAMLAuthBackend.get_idp(idp_name)
+    config = objSAMLAuth.generate_saml_config(idp)
+    
+    config.pop('contactPerson', None)
+    config.pop('organization', None)
+    config['sp']['entityId'] = 'https://ficusedx.keep.edu.hk/auth/saml/metadata.xml'
+    config['sp']['assertionConsumerService']['url'] = 'https://ficusedx.keep.edu.hk/'
+    config['sp']['singleLogoutService'] = {'url':'https://ficusedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    config['idp']['singleLogoutService'] = {'url':'https://account.keep.edu.hk/idp/saml2/idp/SingleLogoutService.php', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    
+    request_info = {
+        'https': 'on',
+        'http_host': 'ficusedx.keep.edu.hk',
+        'script_name': '/sso_logout',
+        'server_port': '80',
+        'get_data': None,
+        'post_data': None,
+    }
+    
+    redirect_url = "https://ficusedx.keep.edu.hk/"
+    
+    if request.GET.get('studio'): 
+        redirect_url = "https://ficusedxstudio.keep.edu.hk/"
+    
+    auth = OneLogin_Saml2_Auth(request_info, old_settings=config)
+    return redirect(auth.logout(return_to=redirect_url))
+    
+@csrf_exempt
+def logout_redirect(request):
+    """SSO Logout Redirect"""
+    from onelogin.saml2.auth import OneLogin_Saml2_Auth
+    from social_core.backends.saml import SAMLAuth, SAMLIdentityProvider
+    from third_party_auth.saml import SAMLAuthBackend 
+    
+    #return redirect('/')
+    
+    objSAMLAuthBackend = SAMLAuthBackend()
+    objSAMLAuth = SAMLAuth()
+    
+    idp_name = 'keep-auth'
+    idp = objSAMLAuthBackend.get_idp(idp_name)
+    config = objSAMLAuth.generate_saml_config(idp)
+    
+    config.pop('contactPerson', None)
+    config.pop('organization', None)
+    config['sp']['entityId'] = 'https://ficusedx.keep.edu.hk/auth/saml/metadata.xml'
+    config['sp']['assertionConsumerService']['url'] = 'https://ficusedx.keep.edu.hk/'
+    config['sp']['singleLogoutService'] = {'url':'https://ficusedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    config['idp']['singleLogoutService'] = {'url':'https://account.keep.edu.hk/idp/saml2/idp/SingleLogoutService.php', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    
+    request_info = {
+        'https': 'on',
+        'http_host': 'ficusedx.keep.edu.hk',
+        'script_name': '/logout/redirect/',
+        'get_data': request.GET,
+        'post_data': None,
+    }
+    auth = OneLogin_Saml2_Auth(request_info, old_settings=config) 
+    ret = auth.process_slo()
+    authError = auth.get_errors()
+    
+    if len(authError) > 0:
+        log.info("******************** auth error ******************")
+        log.info(auth.get_errors())
+        raise KeyError
+        
+    if ret is None and len(authError) == 0: 
+        ret = request.GET.get('RelayState') if request.GET.get('RelayState') else '/'
+    
+    return redirect(ret)
+    
 @require_http_methods(['POST'])
 def password_change_request_handler(request):
     """Handle password change requests originating from the account page.
@@ -613,3 +697,13 @@ def account_settings_context(request):
 
 def saml_studio_redirect(request):
     return redirect("//" + settings.CMS_BASE)
+    
+def user_profile_image(request, username):
+    log.info(username)
+    try:
+        user = get_user_by_username_or_email(username_or_email=username)
+    except User.DoesNotExist:
+        return HttpResponse("false")
+        
+    return HttpResponse(get_profile_image_urls_for_user(user)['medium'])
+    

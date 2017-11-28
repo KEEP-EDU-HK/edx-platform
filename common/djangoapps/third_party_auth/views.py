@@ -9,12 +9,13 @@ from django.views.decorators.csrf import csrf_exempt
 from social_django.utils import load_strategy, load_backend, psa
 from social_django.views import complete
 from social_core.utils import setting_name
-
+import logging
 from student.models import UserProfile
 from student.views import compose_and_send_activation_email
 
 from .models import SAMLConfiguration
 
+log = logging.getLogger("edx.external_auth")
 URL_NAMESPACE = getattr(settings, setting_name('URL_NAMESPACE'), None) or 'social'
 
 
@@ -44,11 +45,29 @@ def saml_metadata_view(request):
     if not SAMLConfiguration.is_enabled(request.site):
         raise Http404
     complete_url = reverse('social:complete', args=("tpa-saml", ))
+
     if settings.APPEND_SLASH and not complete_url.endswith('/'):
         complete_url = complete_url + '/'  # Required for consistency
     saml_backend = load_backend(load_strategy(request), "tpa-saml", redirect_uri=complete_url)
     metadata, errors = saml_backend.generate_metadata_xml()
 
+    import xml.etree.ElementTree as ET
+    
+    ET.register_namespace('md','urn:oasis:names:tc:SAML:2.0:metadata')
+    ET.register_namespace('ds','http://www.w3.org/2000/09/xmldsig#')
+    
+    root = ET.fromstring(metadata)
+    objSingleLogoutService = ET.Element("md:SingleLogoutService", Binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", Location = "https://ficusedx.keep.edu.hk/logout/redirect/", index = "2")
+    
+    namespace = {'md': 'urn:oasis:names:tc:SAML:2.0:metadata'}
+    
+    objSPSSODescriptor = root.find('md:SPSSODescriptor', namespace)
+    objSPSSODescriptor.append(objSingleLogoutService)
+    
+    #objAssertionService = objSPSSODescriptor.find('md:AssertionConsumerService', namespace)
+    #objAssertionService.attrib['Location'] = 'https://ficusedx.keep.edu.hk/auth/complete/tpa-saml/'
+    metadata = ET.tostring(root)
+    
     if not errors:
         return HttpResponse(content=metadata, content_type='text/xml')
     return HttpResponseServerError(content=', '.join(errors))
