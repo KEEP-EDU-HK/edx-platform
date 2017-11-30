@@ -52,7 +52,7 @@ def get_enrollment_period(course_id):
 
   query = "SELECT " + select_clause + " FROM " + from_clause + " WHERE " + where_clause
 
-  conn = MySQLdb.connect("10.11.50.16","edxapp001","password","edxapp")
+  conn = MySQLdb.connect("10.11.51.16","edxapp001","password","edxapp")
   cursor = conn.cursor(MySQLdb.cursors.DictCursor)
   cursor.execute(query)
   results = list(cursor) # to array

@@ -172,7 +172,7 @@ def get_enrolments(type, value=""):
 
   query = "SELECT " + select_clause + " FROM " + from_clause + " WHERE " + where_clause + " ORDER BY " + order_clause
 
-  conn = MySQLdb.connect("10.11.50.16","edxapp001","password","edxapp")
+  conn = MySQLdb.connect("10.11.51.16","edxapp001","password","edxapp")
   cursor = conn.cursor(MySQLdb.cursors.DictCursor)
   cursor.execute(query)
   results = list(cursor) # to array
@@ -191,7 +191,7 @@ def get_enrolments(type, value=""):
 
 def get_keepcourses():
 
-  mongoClient = MongoClient(host="10.11.50.17")
+  mongoClient = MongoClient(host="10.11.51.17")
   mongoDB = mongoClient.edxapp
   courses = mongoDB.modulestore.active_versions.find()
 
