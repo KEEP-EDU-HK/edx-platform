@@ -197,6 +197,10 @@ hr {
         float: right;
         padding: 0.8rem;
     }
+    .keepmenu .menu.course-name {
+        border-right: none !important;
+        max-width: 100% !important;
+    }
 }
 
 /*!
@@ -645,4 +649,17 @@ img.avatar {
 
 body {
     min-width: 200px;
+}
+
+.keepmenu .menu.course-name {
+    border-right: 1px solid #e5e5e5;
+    max-width: 200px;
+}
+
+.keepmenu .menu .course-title {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
 }
