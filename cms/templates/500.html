@@ -11,8 +11,27 @@ ${Text(_("{studio_name} Server Error")).format(
 </%block>
 <%block name="bodyclass">view-util util-500</%block>
 
+<style>
+    .view-util .content header h1 {
+        color: #646464;
+        font: normal 1.2em/1.2em Georgia,Cambria,"Times New Roman",Times,serif;
+        margin-bottom: 15px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .view-util .content .content-primary p {
+        max-width: 600px;
+        margin: 0 auto;
+        font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
+    }
+
+    .view-util .content header {
+        border-bottom: none;
+    }
+</style>
+
 <%block name="content">
-<div class="wrapper-content wrapper">
+<div class="wrapper-content wrapper" style="padding: 80px 0;text-align: center;border-bottom: 1px solid #e5e5e5;margin-top: 0px;">
   <section class="content">
     <header>
       <h1 class="title title-1">
@@ -23,7 +42,7 @@ ${Text(_("{studio_name} Server Error")).format(
         )}
       </h1>
     </header>
-    <article class="content-primary" role="main">
+    <article class="content-primary" role="main" style="margin: 0 13%;">
       <p>
         ${Text(_("An error occurred in {studio_name} and the page could not be loaded. Please try again in a few moments.")).format(
           studio_name=Text(settings.STUDIO_SHORT_NAME),
