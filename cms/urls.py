@@ -208,6 +208,7 @@ if 'debug_toolbar' in settings.INSTALLED_APPS:
 # pylint: disable=invalid-name
 handler404 = 'contentstore.views.render_404'
 handler500 = 'contentstore.views.render_500'
+handler403 = 'contentstore.views.render_403'
 
 # display error page templates, for testing purposes
 urlpatterns += (

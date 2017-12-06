@@ -2,12 +2,12 @@
 
 import functools
 
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseServerError, HttpResponseForbidden
 
 from edxmako.shortcuts import render_to_response, render_to_string
 from openedx.core.djangolib.js_utils import dump_js_escaped_json
 
-__all__ = ['not_found', 'server_error', 'render_404', 'render_500']
+__all__ = ['not_found', 'server_error', 'render_404', 'render_500', 'render_403']
 
 
 def jsonable_error(status=500, message="The Studio servers encountered an error"):
@@ -46,3 +46,7 @@ def render_404(request):
 @jsonable_error(500, "The Studio servers encountered an error")
 def render_500(request):
     return HttpResponseServerError(render_to_string('500.html', {}, request=request))
+
+@jsonable_error(403, "Unauthorized access")
+def render_403(request):
+    return HttpResponseForbidden(render_to_string('403.html', {}, request=request))
