@@ -91,7 +91,7 @@
                     editable: 'never',
                     showMessages: false,
                     iconName: 'fa-map-marker',
-                    placeholderValue: gettext('User Country'),
+                    placeholderValue: gettext('--'),
                     valueAttribute: 'country',
                     options: options.country_options,
                     helpMessage: ''

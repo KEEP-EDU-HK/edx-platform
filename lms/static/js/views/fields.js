@@ -223,7 +223,7 @@
             updateDisplayModeClass: function() {
                 this.$el.removeClass('mode-edit');
 
-                this.$el.toggleClass('mode-hidden', (this.editable === 'never' && !this.modelValueIsSet()));
+                /*this.$el.toggleClass('mode-hidden', (this.editable === 'never' && !this.modelValueIsSet()));*/
                 this.$el.toggleClass('mode-placeholder', (this.editable === 'toggle' && !this.modelValueIsSet()));
                 this.$el.toggleClass('mode-display', (this.modelValueIsSet()));
             },

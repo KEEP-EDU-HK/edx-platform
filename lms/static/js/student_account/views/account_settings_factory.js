@@ -105,7 +105,8 @@
                                 title: gettext('Country or Region'),
                                 valueAttribute: 'country',
                                 options: fieldsData.country.options,
-								editable: 'never'
+				editable: 'never',
+				placeholderValue: '--'
                             })
                         },
 						{
@@ -114,7 +115,8 @@
                                 title: gettext('Gender'),
                                 valueAttribute: 'gender',
                                 options: fieldsData.gender.options,
-                                editable: 'never'
+                                editable: 'never',
+                                placeholderValue: '--'
                             })
                         },
                         {
@@ -123,7 +125,8 @@
                                 title: gettext('Year of Birth'),
                                 valueAttribute: 'year_of_birth',
                                 options: fieldsData.year_of_birth.options,
-                                editable: 'never'
+                                editable: 'never',
+                                placeholderValue: '--'
                             })
                         } 
                     ]
