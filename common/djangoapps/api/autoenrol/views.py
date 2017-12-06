@@ -97,7 +97,7 @@ def auto_enrol(request):
 
   results = {
     'error': True,
-    'description': 'User does not exist. Please contact info@keep.edu.hk',
+    'description': 'User does not exist. Please contact support@keep.edu.hk',
   }
 
   if user != None:
@@ -106,13 +106,13 @@ def auto_enrol(request):
     except CourseFullError:
       results = {
         'error': True,
-        'description': 'Course enrolment full. Please contact info@keep.edu.hk',
+        'description': 'Course enrolment full. Please contact support@keep.edu.hk',
       }
       return JsonResponse(results)
     except EnrollmentClosedError:
       results = {
         'error': True,
-        'description': 'Not allowed to enrol in course, might be enrolment closed or invitation only or not yet started. Please contact info@keep.edu.hk',
+        'description': 'Not allowed to enrol in course, might be enrolment closed or invitation only or not yet started. Please contact support@keep.edu.hk',
       }
       raise KeyError
       #return JsonResponse(results)
