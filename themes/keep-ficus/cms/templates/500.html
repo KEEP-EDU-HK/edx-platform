@@ -1,58 +1,45 @@
 <%page expression_filter="h"/>
 <%!
-from openedx.core.djangolib.markup import HTML, Text
 from django.utils.translation import ugettext as _
+from openedx.core.djangolib.markup import HTML, Text
 %>
 <%inherit file="base.html" />
-<%block name="title">
-${Text(_("{studio_name} Server Error")).format(
-  studio_name=Text(settings.STUDIO_SHORT_NAME)
-)}
-</%block>
-<%block name="bodyclass">view-util util-500</%block>
+<%block name="title">${_("Page Not Found")}</%block>
+<%block name="bodyclass">view-util util-404</%block>
 
 <%block name="content">
-<div class="wrapper-content wrapper" style="padding: 80px 0;text-align: center;border-bottom: 1px solid #e5e5e5;margin-top: 0px;">
+<div class="wrapper-content wrapper" style="padding: 80px 0;text-align: center;margin-top: 0px;">
   <section class="content">
-    <style>
-    .view-util .content header h1 {
-        color: #646464;
-        font: normal 1.2em/1.2em Georgia,Cambria,"Times New Roman",Times,serif;
-        margin-bottom: 15px;
-        -webkit-font-smoothing: antialiased;
-    }
+  <style>
+        .view-util .content header h1 {
+            color: #646464;
+            font: normal 1.2em/1.2em Georgia,Cambria,"Times New Roman",Times,serif;
+            margin-bottom: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .view-util .content .content-primary p {
-        max-width: 600px;
-        margin: 0 auto;
-        font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
-    }
+        .view-util .content .content-primary p {
+            max-width: 600px;
+            margin: 0 auto;
+            font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
+        }
 
-    .view-util .content header {
-        border-bottom: none;
-    }
-</style>
-
+        .view-util .content header {
+            border-bottom: none;
+        }
+    </style>
     <header>
-      <h1 class="title title-1">
-        ${Text(_(u"The {em_start}{studio_name}{em_end} servers encountered an error")).format(
-          em_start=HTML('<em>'),
-          em_end=HTML('</em>'),
-          studio_name=Text(settings.STUDIO_SHORT_NAME),
-        )}
-      </h1>
+      <h1 class="title title-1">${_("Page not found")}</h1>
     </header>
     <article class="content-primary" role="main" style="margin: 0 13%;">
       <p>
-        ${Text(_("An error occurred in {studio_name} and the page could not be loaded. Please try again in a few moments.")).format(
-          studio_name=Text(settings.STUDIO_SHORT_NAME),
-        )}
-        ${_("We've logged the error and our staff is currently working to resolve this error as soon as possible.")}
-        ${Text(_(u'If the problem persists, please email us at {email_link}.')).format(
-          email_link=HTML(u'<a href="mailto:{email_address}">{email_address}</a>').format(
-            email_address=Text(settings.TECH_SUPPORT_EMAIL),
-          )
-        )}
+      ${_('The page that you were looking for was not found.')}
+      ${Text(_('Go back to the {homepage} or let us know about any pages that may have been moved at {email}.')).format(
+        homepage=HTML('<a href="/">homepage</a>'),
+        email=HTML('<a href="mailto:{address}">{address}</a>').format(
+          address=Text(settings.TECH_SUPPORT_EMAIL)
+        )
+      )}
       </p>
     </article>
   </section>
