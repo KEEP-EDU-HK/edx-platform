@@ -217,6 +217,7 @@ def logout_redirect(request):
     from onelogin.saml2.auth import OneLogin_Saml2_Auth
     from social_core.backends.saml import SAMLAuth, SAMLIdentityProvider
     from third_party_auth.saml import SAMLAuthBackend 
+    from django.contrib.auth import logout
     
     #return redirect('/')
     
@@ -249,7 +250,9 @@ def logout_redirect(request):
         log.info("******************** auth error ******************")
         log.info(auth.get_errors())
         raise KeyError
-        
+
+    logout(request)
+
     if ret is None and len(authError) == 0: 
         ret = request.GET.get('RelayState') if request.GET.get('RelayState') else '/'
     
