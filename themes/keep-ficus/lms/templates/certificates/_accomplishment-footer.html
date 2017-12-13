@@ -64,6 +64,106 @@
             margin: 0 auto;
             font: normal 1em/1.6em Georgia,Cambria,"Times New Roman",Times,serif;
         }
+        
+        .accomplishment-rendering {
+            background-image: url('/static/keep-ficus/images/tablet_laptop_horizontal.png');
+            background-size: contain;
+            border-top: none;
+            min-height: 708px;
+        }
+        .accomplishment-type-symbol {
+            display: block !important;
+            margin-left: 65px !important;
+            padding-top: 30px !important;
+        }
+        .dist {
+            height: 27px;
+            width: 182px;
+            opacity: 0.7;
+            padding-top: 4px;
+            text-align: center;
+            font-family: 'Open Sans';
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin-left: 52px;
+            margin-top: 50px;
+        }
+        .section-left {
+            float: left;
+            width: 30%;
+        }
+        .section-right {
+            float: right;
+            width: 70%;
+        }
+        .mobile {
+            display:none;
+        }
+        .layout-accomplishment .accomplishment-signatories .signatory {
+            width: calc(23% - 1rem) !important;
+        }
+        @media (max-width: 768px) {
+            .accomplishment-rendering {
+                background-image: url('/static/keep-ficus/images/mobile_tablet_vertical.png');
+                background-size: 100% 100%;
+            }
+            .accomplishment-type-symbol {
+                display: none important;
+            }
+            .layout-accomplishment .accomplishment-rendering .accomplishment-type {
+                margin-left: 0px;
+            }
+            .dist {
+                display:none;
+            }
+            .section-left {
+                display: none;
+            }
+            .section-right {
+                width: 100%;
+            }
+            .mobile {
+                display:block !important;
+                vertical-align: middle;
+                margin-top: 30px;
+                text-align:center;
+            }
+            .layout-accomplishment .accomplishment-signatories  .signatory {
+                width: calc(50% - 1rem) !important;
+            }
+        }
+        @media (max-width: 375px) {
+            .layout-accomplishment .accomplishment-signatories  .signatory {
+                width: calc(100% - 1rem) !important;
+            }
+        }
+        @media (max-width: 1024px){
+            .mobile {
+                display:none;
+            }
+            .accomplishment-type-symbol {
+                display: block !important;
+                margin-left: 40px !important;
+                padding-top: 30 !important;
+            }
+            .dist {
+                margin-left: 25px;
+                margin-top: 50px;
+            }
+            .layout-accomplishment .accomplishment-signatories .signatory {
+                width: calc(23% - 1rem);
+            }
+            .accomplishment-rendering {
+                min-height: 589px;
+                padding-bottom: 0px;
+            }
+        }
+        .accomplishment-rendering .accomplishment-signatories {
+            border-bottom: none;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
     </style>
 
 </div>
