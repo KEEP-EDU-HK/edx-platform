@@ -11,7 +11,7 @@ except ImportError:
     newrelic = None  # pylint: disable=invalid-name
 from django.http import (
     HttpResponse, HttpResponseNotModified, HttpResponseForbidden,
-    HttpResponseBadRequest, HttpResponseNotFound, HttpResponsePermanentRedirect)
+    HttpResponseBadRequest, HttpResponseNotFound, HttpResponsePermanentRedirect, Http404)
 from student.models import CourseEnrollment
 
 from xmodule.assetstore.assetmgr import AssetManager
@@ -74,7 +74,7 @@ class StaticContentServer(object):
                 content = self.load_asset_from_location(loc)
                 actual_digest = getattr(content, "content_digest", None)
             except (ItemNotFoundError, NotFoundError):
-                return HttpResponseNotFound()
+                raise Http404
 
             # If this was a versioned asset, and the digest doesn't match, redirect
             # them to the actual version.
@@ -104,7 +104,7 @@ class StaticContentServer(object):
 
             # Check that user has access to the content.
             if not self.is_user_authorized(request, content, loc):
-                return HttpResponseForbidden('Unauthorized')
+                raise Http404
 
             # Figure out if the client sent us a conditional request, and let them know
             # if this asset has changed since then.
