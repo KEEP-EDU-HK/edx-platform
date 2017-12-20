@@ -162,6 +162,7 @@ span.membership-note {
 .home>header .title>.heading-group p, section.outside-app h1, section.outside-app p, 
 section.outside-app ul, section.outside-app form {
     font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+    text-align: center;
 }
 
 section.outside-app p, section.outside-app ul, section.outside-app form {
