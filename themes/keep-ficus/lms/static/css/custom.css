@@ -1,0 +1,232 @@
+html, body {
+    line-height: 1.475em;
+}
+
+.keepmenu .nav-left {
+    width: 51% !important;
+}
+.keepmenu .nav-left .menu {
+    width: 100%;
+}
+.keepmenu .nav-left .menu a.menu-item {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dashboard .my-courses .course .details .course-actions .action {
+    color: #262626;
+}
+h2, .home>header .title>.heading-group p, section.outside-app h1 {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+label {
+    font-family:  "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    font-style: normal;
+}
+.modal .inner-wrapper form .submit, .leanModal_box .inner-wrapper form .submit {
+    padding-top: 25px;
+}
+.modal, .leanModal_box {
+    background: #fff;
+}
+.modal .inner-wrapper, .leanModal_box .inner-wrapper {
+    border-color: #fff;
+    background: #fff;
+}
+h2, .home>header .title>.heading-group p, section.outside-app h1 {
+    color: #5b5b5b;
+}
+.dashboard .my-courses .course .details .course-title a {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #3a76f8;
+}
+.dashboard .my-courses .course .details .course-title a:hover {
+    color: #083fc4;
+}
+.dashboard .my-courses .course .details .enter-course {
+    font-size: 0.875rem;
+    font-weight: 700;
+    background-color: #3a76f8;
+    color: #fff;
+    border-color: #3a76f8;
+}
+.dashboard .my-courses .course .details .enter-course:hover {
+    background-color: #083fc4;
+}
+button#orders-tab {
+    display: none;
+}
+.account-settings-sections .section .account-settings-section-body .u-field .field .field-label {
+	font-weight: 700
+}
+.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link {
+	font-size: 0.875rem;
+	font-weight: 800;
+}
+.edx-notes-wrapper .annotator-hl {
+    background: #f9c975 
+}
+.wrap-instructor-info .instructor-info-action {
+    text-transform: capitalize;
+    Color: #3A76F8;
+    Font-weight: 700;
+    background-color: #FFF;
+    Border: 1px solid #3A76F8;
+}
+.is-hidden, .xmodule_display.xmodule_VideoModule .video.closed .subtitles {
+    display: none !important;
+}
+.modal .inner-wrapper header h2, .leanModal_box .inner-wrapper header h2, .wmd-prompt-dialog .inner-wrapper header h2 {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+.wiki-wrapper section.wiki .main-article .lead {
+    margin-bottom: 1em;
+}
+.wiki-wrapper section.wiki .controls {
+    margin-top: -24px;
+    padding-left: 194px;
+}
+.view-student-notes .note-group .note .wrapper-note-excerpts .note-excerpt {
+	background: #f9c975
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    .keepmenu .nav-left {
+        width: auto !important;
+    }
+    .u-field-message .u-field-message-help, .u-field-message .u-field-message-notification {
+    	width: 100%;
+    }
+    .account-settings-sections .section .account-settings-section-body .u-field .u-field-message {
+    	width: 100%;
+    	padding-left: 0px;
+    }
+    .account-settings-sections .section .account-settings-section-body .u-field .field {
+		width:100%;
+	}
+	.account-settings-sections .section .account-settings-section-body .u-field .u-field-message .u-field-message-notification {
+		padding: 24px 0 24px 0px;
+	}
+}
+
+.instructor-dashboard-content-2 .enrollment-wrapper table > caption {
+    text-align: left;
+    width: 200%;
+}
+
+.instructor-dashboard-content-2 .enrollment-wrapper table tr td {
+	padding-left: 2em;
+}
+
+.slick-header.ui-state-default .slick-header-column {
+	height: 24px
+}
+
+span.membership-note {
+    font-weight: bold; 
+    font-size: 0.9em; 
+    color: #262626;
+}
+
+.instructor-dashboard-wrapper-2 section.idash-section#membership .member-lists-management .auth-list-container .member-list-widget .bottom-bar input[type="text"] {
+    width: 300px;
+}
+
+.instructor-dashboard-wrapper-2 section.idash-section#student_admin .action-type-container
+ label[for="gradebook-link"] {
+    font-weight: bold; 
+    font-size: 0.9em; 
+    color: #262626;
+}
+ 
+.instructor-dashboard-wrapper-2 section.idash-section#certificates .white-listed-students button.btn-blue {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.ui-accordion .ui-accordion-header#ui-accordion-proctoring-accordion-header-0 .ui-icon {
+    left:8.5em;   
+}
+
+.ui-accordion .ui-accordion-header#ui-accordion-proctoring-accordion-header-1 .ui-icon {
+    left:14.8em;   
+}
+
+.home>header .title>.heading-group p, section.outside-app h1, section.outside-app p, 
+section.outside-app ul, section.outside-app form {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+
+section.outside-app p, section.outside-app ul, section.outside-app form {
+    max-width: 700px
+}
+
+.course-info .course-sidebar header .social-sharing .sharing-message {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+
+.course-info header.course-profile .intro-inner-wrapper .intro>.heading-group h1 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #3A76F8;
+}
+
+.course-info header.course-profile .intro-inner-wrapper .intro>.heading-group h2, 
+.course-info .details {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+
+
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta strong,
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta a.register {
+    border: none !important;
+    border-bottom: none !important;
+    background-image: none;
+    text-shadow: none;
+    color: #fff;
+    background-color: #3A76F8;
+}
+
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta strong:hover,
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta a.register:hover {
+    background-color: #083fc4 !important;
+    background-image: none !important;
+}
+
+.course-info header.course-profile {
+    background-color: #fff;
+    border-bottom: 1px solid #ededed;
+}
+
+.intro-inner-wrapper {
+    border: none !important;
+    text-shadow: none !important;
+    background-color: #fff !important;
+}
+
+.intro-inner-wrapper .media .hero {
+    border: 1px solid #ededed !important;
+}
+
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta span.register {
+    border: 1px solid #ededed !important;    
+}
+
+.course-info .container .wrap-instructor-info .instructor-info-action {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #fff;
+    background: #083fc4;
+}
+
+.course-info .container .wrap-instructor-info .instructor-info-action:hover {
+    background: #003290;
+    text-decoration: none;
+}

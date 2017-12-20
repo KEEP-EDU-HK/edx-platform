@@ -86,14 +86,14 @@
                             view: new AccountSettingsFieldViews.PasswordFieldView({
                                 model: userAccountModel,
                                 title: gettext('Password'),
-                                screenReaderTitle: gettext('Reset Your Password'),
+                                screenReaderTitle: gettext('Reset your password'),
                                 valueAttribute: 'password',
                                 emailAttribute: 'email',
                                 passwordResetSupportUrl: passwordResetSupportUrl,
-                                linkTitle: gettext('Reset Your Password'),
+                                linkTitle: gettext('Reset your password'),
                                 linkHref: 'https://account.keep.edu.hk/account/recovery',
                                 helpMessage: StringUtils.interpolate(
-                                    gettext('When you select "Reset Your Password", you will be sent to the KEEP Account Recovery page.'),  // eslint-disable-line max-len
+                                    gettext('When you select "Reset your password", you will be sent to the KEEP Account Recovery page.'),  // eslint-disable-line max-len
                                     {platform_name: platformName}
                                 )
                             })
