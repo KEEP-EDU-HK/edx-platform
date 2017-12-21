@@ -46,14 +46,16 @@ h2, .home>header .title>.heading-group p, section.outside-app h1 {
 .dashboard .my-courses .course .details .course-title a:hover {
     color: #083fc4;
 }
-.dashboard .my-courses .course .details .enter-course {
+.dashboard .my-courses .course .details .enter-course,
+.dashboard .my-courses .course .details .enter-course.archived {
     font-size: 0.875rem;
     font-weight: 700;
     background-color: #3a76f8;
     color: #fff;
     border-color: #3a76f8;
 }
-.dashboard .my-courses .course .details .enter-course:hover {
+.dashboard .my-courses .course .details .enter-course:hover, 
+.dashboard .my-courses .course .details .enter-course.archived: hover{
     background-color: #083fc4;
 }
 button#orders-tab {
@@ -64,17 +66,24 @@ button#orders-tab {
 }
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link {
 	font-size: 0.875rem;
-	font-weight: 800;
+	font-weight: 700;
 }
 .edx-notes-wrapper .annotator-hl {
     background: #f9c975 
 }
-.wrap-instructor-info .instructor-info-action {
+.wrap-instructor-info .instructor-info-action, 
+.course-info .container .wrap-instructor-info .instructor-info-action  {
     text-transform: capitalize;
     Color: #3A76F8;
     Font-weight: 700;
     background-color: #FFF;
     Border: 1px solid #3A76F8;
+}
+.wrap-instructor-info .instructor-info-action:hover,
+.course-info .container .wrap-instructor-info .instructor-info-action:hover {
+    background: #3A76F8;
+    text-decoration: none;
+    color: #fff;
 }
 .is-hidden, .xmodule_display.xmodule_VideoModule .video.closed .subtitles {
     display: none !important;
@@ -93,9 +102,11 @@ button#orders-tab {
 	background: #f9c975
 }
 
-
-
-
+@media screen and (max-width: 768px) {
+    .view-discussion-home .home-header {
+        margin-top: 1em;
+    }
+}
 
 @media screen and (max-width: 800px) {
     .keepmenu .nav-left {
@@ -142,7 +153,7 @@ span.membership-note {
 .instructor-dashboard-wrapper-2 section.idash-section#student_admin .action-type-container
  label[for="gradebook-link"] {
     font-weight: bold; 
-    font-size: 0.9em; 
+    font-size: 0.81em; 
     color: #262626;
 }
  
@@ -218,16 +229,4 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 
 .course-info header.course-profile .intro-inner-wrapper .intro .main-cta span.register {
     border: 1px solid #ededed !important;    
-}
-
-.course-info .container .wrap-instructor-info .instructor-info-action {
-    text-transform: capitalize;
-    font-weight: 700;
-    color: #fff;
-    background: #083fc4;
-}
-
-.course-info .container .wrap-instructor-info .instructor-info-action:hover {
-    background: #003290;
-    text-decoration: none;
 }
