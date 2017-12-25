@@ -85,7 +85,7 @@ button#orders-tab {
     text-decoration: none;
     color: #fff;
 }
-.is-hidden, .xmodule_display.xmodule_VideoModule .video.closed .subtitles {
+.view-courseware .bookmark-icon.is-hidden {
     display: none !important;
 }
 .modal .inner-wrapper header h2, .leanModal_box .inner-wrapper header h2, .wmd-prompt-dialog .inner-wrapper header h2 {
