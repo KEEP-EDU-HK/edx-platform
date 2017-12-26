@@ -189,24 +189,24 @@ def SSO_Logout(request):
     
     config.pop('contactPerson', None)
     config.pop('organization', None)
-    config['sp']['entityId'] = 'https://ficusedx.keep.edu.hk/auth/saml/metadata.xml'
-    config['sp']['assertionConsumerService']['url'] = 'https://ficusedx.keep.edu.hk/'
-    config['sp']['singleLogoutService'] = {'url':'https://ficusedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    config['sp']['entityId'] = 'https://prodedx.keep.edu.hk/auth/saml/metadata.xml'
+    config['sp']['assertionConsumerService']['url'] = 'https://prodedx.keep.edu.hk/'
+    config['sp']['singleLogoutService'] = {'url':'https://prodedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
     config['idp']['singleLogoutService'] = {'url':'https://account.keep.edu.hk/idp/saml2/idp/SingleLogoutService.php', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
     
     request_info = {
         'https': 'on',
-        'http_host': 'ficusedx.keep.edu.hk',
+        'http_host': 'prodedx.keep.edu.hk',
         'script_name': '/sso_logout',
         'server_port': '80',
         'get_data': None,
         'post_data': None,
     }
     
-    redirect_url = "https://ficusedx.keep.edu.hk/"
+    redirect_url = "https://prodedx.keep.edu.hk/"
     
     if request.GET.get('studio'): 
-        redirect_url = "https://ficusedxstudio.keep.edu.hk/"
+        redirect_url = "https://prodedxstudio.keep.edu.hk/"
     
     auth = OneLogin_Saml2_Auth(request_info, old_settings=config)
     return redirect(auth.logout(return_to=redirect_url))
@@ -230,14 +230,14 @@ def logout_redirect(request):
     
     config.pop('contactPerson', None)
     config.pop('organization', None)
-    config['sp']['entityId'] = 'https://ficusedx.keep.edu.hk/auth/saml/metadata.xml'
-    config['sp']['assertionConsumerService']['url'] = 'https://ficusedx.keep.edu.hk/'
-    config['sp']['singleLogoutService'] = {'url':'https://ficusedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
+    config['sp']['entityId'] = 'https://prodedx.keep.edu.hk/auth/saml/metadata.xml'
+    config['sp']['assertionConsumerService']['url'] = 'https://prodedx.keep.edu.hk/'
+    config['sp']['singleLogoutService'] = {'url':'https://prodedx.keep.edu.hk/', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
     config['idp']['singleLogoutService'] = {'url':'https://account.keep.edu.hk/idp/saml2/idp/SingleLogoutService.php', 'binding':'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'}
     
     request_info = {
         'https': 'on',
-        'http_host': 'ficusedx.keep.edu.hk',
+        'http_host': 'prodedx.keep.edu.hk',
         'script_name': '/logout/redirect/',
         'get_data': request.GET,
         'post_data': None,

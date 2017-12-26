@@ -19,7 +19,7 @@ mongoclient = MongoClient(host=["10.11.5.17", "10.11.5.20", "10.11.5.21"], repli
 edxdb       = mongoclient.edxapp
 forumdb     = mongoclient.cs_comments_service
 
-base_domain = 'ficusedx.keep.edu.hk'
+base_domain = 'prodedx.keep.edu.hk'
 base_url    = 'https://' + base_domain
 
 def expandLog(line):

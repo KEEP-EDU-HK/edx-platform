@@ -57,7 +57,7 @@ def saml_metadata_view(request):
     ET.register_namespace('ds','http://www.w3.org/2000/09/xmldsig#')
     
     root = ET.fromstring(metadata)
-    objSingleLogoutService = ET.Element("md:SingleLogoutService", Binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", Location = "https://ficusedx.keep.edu.hk/logout/redirect/", index = "2")
+    objSingleLogoutService = ET.Element("md:SingleLogoutService", Binding = "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect", Location = "https://prodedx.keep.edu.hk/logout/redirect/", index = "2")
     
     namespace = {'md': 'urn:oasis:names:tc:SAML:2.0:metadata'}
     
@@ -65,7 +65,7 @@ def saml_metadata_view(request):
     objSPSSODescriptor.append(objSingleLogoutService)
     
     #objAssertionService = objSPSSODescriptor.find('md:AssertionConsumerService', namespace)
-    #objAssertionService.attrib['Location'] = 'https://ficusedx.keep.edu.hk/auth/complete/tpa-saml/'
+    #objAssertionService.attrib['Location'] = 'https://prodedx.keep.edu.hk/auth/complete/tpa-saml/'
     metadata = ET.tostring(root)
     
     if not errors:
