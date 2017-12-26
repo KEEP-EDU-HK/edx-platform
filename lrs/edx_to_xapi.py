@@ -15,7 +15,7 @@ user_roles = {}
 courses    = {}
 
 # Prepare for discussion-related query
-mongoclient = MongoClient(host=["10.11.51.17", "10.11.51.20", "10.11.51.21"], replicaSet="keepmongocluster")
+mongoclient = MongoClient(host=["10.11.5.17", "10.11.5.20", "10.11.5.21"], replicaSet="mongoclusterprod")
 edxdb       = mongoclient.edxapp
 forumdb     = mongoclient.cs_comments_service
 
