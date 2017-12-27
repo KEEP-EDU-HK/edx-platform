@@ -182,6 +182,7 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 
 .course-info .course-sidebar header .social-sharing .sharing-message {
     font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+    font-style: normal;
 }
 
 .course-info header.course-profile .intro-inner-wrapper .intro>.heading-group h1 {
@@ -229,4 +230,27 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 
 .course-info header.course-profile .intro-inner-wrapper .intro .main-cta span.register {
     border: 1px solid #ededed !important;    
+}
+
+.dashboard .my-courses .course .details .enter-course:hover, 
+.dashboard .my-courses .course .details .enter-course.archived:hover {
+    background-color: #083fc4;
+}
+
+.view-wiki .wiki-wrapper section.wiki .control-group {
+     padding-top: 20px; 
+}
+
+.view-wiki .wiki-wrapper section.wiki #div_id_locked .controls,
+.view-wiki .wiki-wrapper section.wiki #div_id_owner_username .controls, 
+.view-wiki .wiki-wrapper section.wiki #div_id_recursive .controls {
+     margin-top: -42px; 
+}
+
+.view-wiki .wiki-wrapper section.wiki .control-group .controls {
+     margin-top: -28px; 
+}
+
+.course-info header.course-profile .intro-inner-wrapper {
+    box-shadow: none;
 }

@@ -54,6 +54,7 @@ body {
 .view-dashboard .create-library .new-course-save.disabled, 
 .view-dashboard .create-library .new-course-save.is-disabled {
     background-color: #bcbcbc !important;
+    border: 1px solid #bcbcbc  !important;
 }
 
 .wrapper-mast .mast.has-actions .nav-actions .button {
@@ -133,11 +134,16 @@ body {
 }
 
 .view-import .action-choose-file {
-    /* line-height: 2.072rem; */
-    /* font-size: 1.4rem; */
+    line-height: 4rem;
+    font-size: 1.4rem;
     padding: 0px;
     width: 40%;
     margin: 20px auto;
+}
+
+.view-import .action-choose-file .icon {
+    line-height: 4rem;
+    font-size: 1.4rem;
 }
 
 .bit .external-help-button {
@@ -162,6 +168,7 @@ body {
     background: #3A76F8;
     color: #FFF;
     text-align: center;
+    border: none;
 }
 
 .course-updates .post-actions .edit-button:hover, 
