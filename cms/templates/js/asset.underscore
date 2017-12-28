@@ -1,6 +1,6 @@
 <td class="thumb-col">
     <div class="thumb">
-        <% if (thumbnail !== '' || thumbnail !== 'unknown') { %>
+        <% if (thumbnail !== '' || thumbnail != 'null') { %>
         <img src="<%- thumbnail %>" alt="<%- gettext('No description available') %>">
         <% } %>
     </div>
