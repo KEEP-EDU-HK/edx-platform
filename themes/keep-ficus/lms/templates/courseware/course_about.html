@@ -15,6 +15,9 @@ from openedx.core.lib.courses import course_image_url
   ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
   <meta property="og:title" content="${course.display_name_with_default_escaped}" />
   <meta property="og:description" content="${get_course_about_section(request, course, 'short_description')}" />
+  <meta property="og:site_name" content="KEEP Open edX" />
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="${course_image_urls['large']}">
 </%block>
 
 <%block name="js_extra">
