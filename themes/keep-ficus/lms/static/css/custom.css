@@ -360,7 +360,7 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 }
 
 .course-sidebar {
-    margin-left: 10px;
+    padding-left: 10px;
 }
 
 .wiki-wrapper section.wiki #hint_id_content {
@@ -507,4 +507,34 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
     max-width: 651px;
     width: 100%;
 }
+
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .cohort-management-nav .action-create, 
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .form-submit {
+	color: #FFF;
+	background-color: #3A76F8;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+}
+
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .cohort-management-nav .action-create:hover, 
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .form-submit:hover {
+	color: #FFF;
+	background-color: #083fc4;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+}
+
+section.outside-app ul li {
+    text-align: left;
+}
+
+.course-info header.course-profile .intro-inner-wrapper .intro .main-cta a.register {
+    text-transform: none;
+}
+
+
 
