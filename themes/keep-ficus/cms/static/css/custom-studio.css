@@ -38,7 +38,7 @@ body {
 }
 
 .view-dashboard .create-course .new-course-save, 
-.view-dashboard .create-library .new-course-save {
+.view-dashboard .create-library .new-library-save {
     border: none;
     background-color: #3A76F8;
     box-shadow: none;
@@ -47,7 +47,7 @@ body {
 }
 
 .view-dashboard .create-course .new-course-save:hover, 
-.view-dashboard .create-library .new-course-save:hover {
+.view-dashboard .create-library .new-library-save:hover {
     border: none;
     background-color: #083fc4;
 }
@@ -63,7 +63,7 @@ body {
 }
 
 .view-dashboard .create-course .new-course-cancel, 
-.view-dashboard .create-library .new-course-cancel {
+.view-dashboard .create-library .new-library-cancel {
     box-shadow: none;
     text-shadow: none;
     background-image: none;
@@ -73,7 +73,7 @@ body {
 }
 
 .view-dashboard .create-course .new-course-cancel:hover, 
-.view-dashboard .create-library .new-course-cancel:hover {
+.view-dashboard .create-library .new-library-cancel:hover {
     background-color: #fff;
 }
 
