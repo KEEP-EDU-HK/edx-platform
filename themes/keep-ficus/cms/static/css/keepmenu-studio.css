@@ -137,7 +137,7 @@ hr {
     padding-left: 0.6rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 991px) {
     .nav-logo {
         float: none;
         height: 3rem;

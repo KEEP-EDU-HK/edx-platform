@@ -34,13 +34,16 @@ body {
 }
 
 [class*="view-"] .xblock-visibility_view .is-not-configured .button:hover, .view-outline .content-primary .no-content .button:hover, .view-static-pages .content-primary .add-pages .button:hover, .view-container .content-primary .no-container-content .button:hover, .view-textbooks .content-primary .no-textbook-content .button:hover, .view-group-configurations .content-primary .no-content .button:hover, .view-certificates .content-primary .no-content .button:hover, [class*="view-"] .xblock-visibility_view .is-not-configured .action:hover, .view-outline .content-primary .no-content .action:hover, .view-static-pages .content-primary .add-pages .action:hover, .view-container .content-primary .no-container-content .action:hover, .view-textbooks .content-primary .no-textbook-content .action:hover, .view-group-configurations .content-primary .no-content .action:hover, .view-certificates .content-primary .no-content .action:hover, .add-xblock-component .new-component .new-component-type .add-xblock-component-button:hover, .wrapper-mast .mast.has-actions .nav-actions .button.new-button:hover, .wrapper-mast .mast.has-actions .nav-actions .button.button-new:hover, .notice-create.has-actions .list-actions .action-primary:hover, .view-uploads .no-asset-content .new-button:hover, .view-dashboard .content .notice-incontext.has-actions .list-actions .action-create-course:hover, .view-dashboard .content .notice-incontext.has-actions .list-actions .action-create-library:hover, .view-dashboard .content .notice-incontext.list-notices .notice-item.has-actions .list-actions .action-create-course:hover, .view-dashboard .content .notice-incontext.list-notices .notice-item.has-actions .list-actions .action-create-library:hover, .view-import .action-choose-file:hover, .view-import .wrapper-file-name .submit-button:hover, .view-settings .group-settings.assignment-types .actions .new-button:hover, .view-settings .group-settings.course-learning-info .actions .new-button:hover, .view-settings .group-settings.instructor-types .actions .new-button:hover, .view-team .content .notice-create.has-actions .list-actions .action-primary:hover, .wrapper-xblock .xblock-message.no-container-content.xblock-message.no-container-content .button:hover, .wrapper-xblock .xblock-message.no-container-content.xblock-message.no-container-content .action:hover, [class*="view-"] .xblock-visibility_view .is-not-configured .button:active, .view-outline .content-primary .no-content .button:active, .view-static-pages .content-primary .add-pages .button:active, .view-container .content-primary .no-container-content .button:active, .view-textbooks .content-primary .no-textbook-content .button:active, .view-group-configurations .content-primary .no-content .button:active, .view-certificates .content-primary .no-content .button:active, [class*="view-"] .xblock-visibility_view .is-not-configured .action:active, .view-outline .content-primary .no-content .action:active, .view-static-pages .content-primary .add-pages .action:active, .view-container .content-primary .no-container-content .action:active, .view-textbooks .content-primary .no-textbook-content .action:active, .view-group-configurations .content-primary .no-content .action:active, .view-certificates .content-primary .no-content .action:active, .add-xblock-component .new-component .new-component-type .add-xblock-component-button:active, .wrapper-mast .mast.has-actions .nav-actions .button.new-button:active, .wrapper-mast .mast.has-actions .nav-actions .button.button-new:active, .notice-create.has-actions .list-actions .action-primary:active, .view-uploads .no-asset-content .new-button:active, .view-dashboard .content .notice-incontext.has-actions .list-actions .action-create-course:active, .view-dashboard .content .notice-incontext.has-actions .list-actions .action-create-library:active, .view-dashboard .content .notice-incontext.list-notices .notice-item.has-actions .list-actions .action-create-course:active, .view-dashboard .content .notice-incontext.list-notices .notice-item.has-actions .list-actions .action-create-library:active, .view-import .action-choose-file:active, .view-import .wrapper-file-name .submit-button:active, .view-settings .group-settings.assignment-types .actions .new-button:active, .view-settings .group-settings.course-learning-info .actions .new-button:active, .view-settings .group-settings.instructor-types .actions .new-button:active, .view-team .content .notice-create.has-actions .list-actions .action-primary:active, .wrapper-xblock .xblock-message.no-container-content.xblock-message.no-container-content .button:active, .wrapper-xblock .xblock-message.no-container-content.xblock-message.no-container-content .action:active {
-    background-color: #083fc4;
+    background-color: #1678c2;
 }
 
 .view-dashboard .create-course .new-course-save, 
 .view-dashboard .create-library .new-course-save {
     border: none;
     background-color: #3A76F8;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
 }
 
 .view-dashboard .create-course .new-course-save:hover, 
@@ -52,9 +55,26 @@ body {
 .view-dashboard .create-course .new-course-save.disabled, 
 .view-dashboard .create-course .new-course-save.is-disabled, 
 .view-dashboard .create-library .new-course-save.disabled, 
-.view-dashboard .create-library .new-course-save.is-disabled {
+.view-dashboard .create-library .new-course-save.is-disabled, 
+.form-create .actions .action-primary.disabled, 
+.form-create .actions .action-primary.is-disabled {
     background-color: #bcbcbc !important;
     border: 1px solid #bcbcbc  !important;
+}
+
+.view-dashboard .create-course .new-course-cancel, 
+.view-dashboard .create-library .new-course-cancel {
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
+    border: 1px solid #ccc;
+    background-color: #ededed;
+    color: #5b5b5b;
+}
+
+.view-dashboard .create-course .new-course-cancel:hover, 
+.view-dashboard .create-library .new-course-cancel:hover {
+    background-color: #fff;
 }
 
 .wrapper-mast .mast.has-actions .nav-actions .button {
@@ -110,6 +130,7 @@ body {
     background-image: none;
     color: #fff;
     background-color: #3A76F8;
+    margin-right: 10px;
 }
 
 .view-team .user-list .user-item .item-actions .action-role .add-admin-role:hover {
@@ -133,15 +154,27 @@ body {
     font-size: 2.16rem !important;
 }
 
-.view-import .action-choose-file {
+.view-import .action-choose-file, 
+.view-export .export-controls .action-export{
     line-height: 4rem;
     font-size: 1.4rem;
     padding: 0px;
     width: 40%;
     margin: 20px auto;
+    color: #FFF;
+    background-color: #3A76F8;
+    border: none;
 }
 
-.view-import .action-choose-file .icon {
+.view-import .action-choose-file:hover, 
+.view-export .export-controls .action-export:hover{
+    color: #FFF;
+    background-color: #083fc4;
+    border: none;
+}
+
+.view-import .action-choose-file .icon, 
+.view-export .export-controls .action-export .icon {
     line-height: 4rem;
     font-size: 1.4rem;
 }
@@ -196,3 +229,90 @@ body {
 .view-util .content .content-primary p {
     font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
 }
+
+.wrapper-prompt .prompt {
+    box-shadow: none;
+    border: none;
+}
+
+.wrapper-prompt .prompt .nav-actions {
+    box-shadow: none;
+    border-top: none;
+}
+
+.alert.warning button, 
+.notification.warning button, 
+.prompt.warning button {
+    color: #fff;
+}
+
+.alert.warning button:hover, 
+.notification.warning button:hover, 
+.prompt.warning button:hover {
+    color: #fff;
+}
+
+.alert.warning .nav-actions .action-primary, 
+.notification.warning .nav-actions .action-primary, 
+.prompt.warning .nav-actions .action-primary {
+    background-color: #3A76F8;
+    color: #fff;
+    background-image: none;
+    box-shadow: none;
+    border:none;
+    border-color: none;
+}
+
+.alert.warning .nav-actions .action-primary:hover, 
+.notification.warning .nav-actions .action-primary:hover, 
+.prompt.warning .nav-actions .action-primary:hover {
+    background-color: #083fc4;
+    color: #fff;
+    background-image: none;
+    box-shadow: none;
+    border:none;
+    border-color: none;
+}
+
+.view-outline .wrapper-mast .mast.has-actions .page-header {
+    width: 30%;
+}
+
+.view-outline .wrapper-mast .mast.has-actions .nav-actions {
+    width: 67%;
+}
+
+.wrapper-comp-settings .file-uploader .upload-setting, .wrapper-comp-settings .list-input.settings-list .metadata-list-enum .create-setting, .wrapper-comp-settings .list-input.settings-list .metadata-dict .create-setting, .outline-content .add-item .button-new, .bit .external-help-button, .view-outline .new-subsection-item, .view-outline .new-unit-item, .view-outline .outline-complex .add-item .button-new, .view-settings .group-settings #field-course-image .wrapper-input .action-upload-image, .view-settings .group-settings #field-banner-image .wrapper-input .action-upload-image, .view-settings .group-settings #field-video-thumbnail-image .wrapper-input .action-upload-image, .view-settings .group-settings.instructor-types .field-group .wrapper-input .action-upload-instructor-image, .view-textbooks .content-primary .textbook .edit-textbook .chapters-fields .field-group .field .action-upload, .view-textbooks .content-primary .textbook .edit-textbook .textbook-fields .field-group .field .action-upload, .view-textbooks .content-primary .textbook .edit-textbook .action-add-chapter, .view-group-configurations .content-primary .wrapper-collection .action-add-item, .view-group-configurations .content-primary .action-add, .view-certificates .wrapper-collection .collection-edit .action-add-signatory, .view-certificates .wrapper-collection .action-add-item, .view-certificates .action-add, .view-certificates .certificates .signatory-edit .field .signature-upload-wrapper .action-upload-signature, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .create-setting, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .upload-setting {
+    border: 1px solid #3A76F8;
+    color: #3A76F8;
+}
+
+.wrapper-comp-settings .file-uploader .upload-setting:hover, .wrapper-comp-settings .list-input.settings-list .metadata-list-enum .create-setting:hover, .wrapper-comp-settings .list-input.settings-list .metadata-dict .create-setting:hover, .outline-content .add-item .button-new:hover, .bit .external-help-button:hover, .view-outline .new-subsection-item:hover, .view-outline .new-unit-item:hover, .view-outline .outline-complex .add-item .button-new:hover, .view-settings .group-settings #field-course-image .wrapper-input .action-upload-image:hover, .view-settings .group-settings #field-banner-image .wrapper-input .action-upload-image:hover, .view-settings .group-settings #field-video-thumbnail-image .wrapper-input .action-upload-image:hover, .view-settings .group-settings.instructor-types .field-group .wrapper-input .action-upload-instructor-image:hover, .view-textbooks .content-primary .textbook .edit-textbook .chapters-fields .field-group .field .action-upload:hover, .view-textbooks .content-primary .textbook .edit-textbook .textbook-fields .field-group .field .action-upload:hover, .view-textbooks .content-primary .textbook .edit-textbook .action-add-chapter:hover, .view-group-configurations .content-primary .wrapper-collection .action-add-item:hover, .view-group-configurations .content-primary .action-add:hover, .view-certificates .wrapper-collection .collection-edit .action-add-signatory:hover, .view-certificates .wrapper-collection .action-add-item:hover, .view-certificates .action-add:hover, .view-certificates .certificates .signatory-edit .field .signature-upload-wrapper .action-upload-signature:hover, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .create-setting:hover, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .upload-setting:hover, .wrapper-comp-settings .file-uploader .upload-setting:focus, .wrapper-comp-settings .list-input.settings-list .metadata-list-enum .create-setting:focus, .wrapper-comp-settings .list-input.settings-list .metadata-dict .create-setting:focus, .outline-content .add-item .button-new:focus, .bit .external-help-button:focus, .view-outline .new-subsection-item:focus, .view-outline .new-unit-item:focus, .view-outline .outline-complex .add-item .button-new:focus, .view-settings .group-settings #field-course-image .wrapper-input .action-upload-image:focus, .view-settings .group-settings #field-banner-image .wrapper-input .action-upload-image:focus, .view-settings .group-settings #field-video-thumbnail-image .wrapper-input .action-upload-image:focus, .view-settings .group-settings.instructor-types .field-group .wrapper-input .action-upload-instructor-image:focus, .view-textbooks .content-primary .textbook .edit-textbook .chapters-fields .field-group .field .action-upload:focus, .view-textbooks .content-primary .textbook .edit-textbook .textbook-fields .field-group .field .action-upload:focus, .view-textbooks .content-primary .textbook .edit-textbook .action-add-chapter:focus, .view-group-configurations .content-primary .wrapper-collection .action-add-item:focus, .view-group-configurations .content-primary .action-add:focus, .view-certificates .wrapper-collection .collection-edit .action-add-signatory:focus, .view-certificates .wrapper-collection .action-add-item:focus, .view-certificates .action-add:focus, .view-certificates .certificates .signatory-edit .field .signature-upload-wrapper .action-upload-signature:focus, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .create-setting:focus, .xmodule_VideoDescriptor .wrapper-comp-settings .list-input.settings-list .metadata-video-translations .upload-setting:focus {
+    background: #083fc4;
+    color: #fff;
+}
+
+.course-handouts .edit-button {
+    background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background: #3A76F8;
+    color: #FFF;
+    text-align: center;
+}
+
+.course-handouts .edit-button:hover {
+    background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background: #083fc4;
+    color: #FFF;
+    text-align: center;
+}
+
+.course-updates .post-actions .edit-button .edit-icon, .course-updates .post-actions .edit-button .delete-icon, .course-updates .post-actions .delete-button .edit-icon, .course-updates .post-actions .delete-button .delete-icon {
+    margin-right: 0px;
+}
+
