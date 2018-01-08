@@ -42,9 +42,16 @@ h2, .home>header .title>.heading-group p, section.outside-app h1 {
     font-size: 1.4rem;
     font-weight: 400;
     color: #3a76f8;
+    line-height:1.4;
 }
 .dashboard .my-courses .course .details .course-title a:hover {
     color: #083fc4;
+}
+.dashboard .my-courses .course .details .course-title span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #767676;
+    line-height:1.4;
 }
 .dashboard .my-courses .course .details .enter-course,
 .dashboard .my-courses .course .details .enter-course.archived {
@@ -241,9 +248,7 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
      padding-top: 20px; 
 }
 
-.view-wiki .wiki-wrapper section.wiki #div_id_locked .controls,
-.view-wiki .wiki-wrapper section.wiki #div_id_owner_username .controls, 
-.view-wiki .wiki-wrapper section.wiki #div_id_recursive .controls {
+.view-wiki .wiki-wrapper section.wiki #div_id_owner_username .controls {
      margin-top: -42px; 
 }
 
@@ -254,3 +259,252 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 .course-info header.course-profile .intro-inner-wrapper {
     box-shadow: none;
 }
+
+@media screen and (max-width: 800px) {
+    .nav-right .menu .btn {
+        padding: 0em 1rem;
+    }
+    div.info-wrapper section.handouts {
+        width: 100%;
+        display: block;
+    }
+}
+
+.modal .inner-wrapper form .submit input[type="submit"], .leanModal_box .inner-wrapper form .submit input[type="submit"] {
+    background: #3A76F8;
+    border: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    border-bottom: none !important;
+    padding: 8px 20px;
+    font-size: 1rem;
+    width: auto;
+    text-transform: capitalize;
+}
+
+.modal .inner-wrapper form .submit input[type="submit"]:hover, .leanModal_box .inner-wrapper form .submit input[type="submit"]:hover {
+    background: #083fc4;
+}
+
+.dashboard .my-courses .course .wrapper-messages-primary .message.message-status.course-status-certavailable .actions-primary .action-certificate .btn {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #FFF;
+    background-color: #3A76F8;
+    border: none !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.dashboard .my-courses .course .wrapper-messages-primary .message.message-status.course-status-certavailable .actions-primary .action-certificate .btn:hover {
+    background-color: #083fc4;
+}
+
+.dashboard .my-courses .course .details .course-actions .wrapper-action-more .action-more {
+    font-size: 0.875rem;
+    line-height: 1.46rem;
+}
+
+@media screen and (max-width: 920px) {
+    .view-profile .badge-set-display .badge-placeholder .badge-details {
+        padding-left: 20px
+    }
+}
+
+.view-profile .profile-section-one-fields {
+    width: auto;
+}
+
+@media screen and (max-width: 1250px) {
+    .view-course-info .home {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin: 0 auto;
+        max-width: 1180px;
+    }
+    .view-course-info .home .page-header-main {
+        margin-left: 20px;
+    }
+}
+
+.home .page-header-secondary {
+    background-color: #3A76F8;
+}
+
+.home .page-header-secondary:hover {
+    background-color:#083fc4;
+}
+
+@media screen and (max-width: 525px) {
+    .content-wrapper .page-header.has-secondary .page-header-secondary {
+        text-align: center;
+    }
+
+    .content-wrapper .page-header.has-secondary .page-header-secondary .form-actions {
+        margin-top: 20px;
+    }
+}
+
+.content-wrapper .page-header.has-secondary .page-header-secondary .form-actions a {
+    background-color: #3A76F8;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    background-image: none;
+}
+
+.content-wrapper .page-header.has-secondary .page-header-secondary .form-actions a:hover {
+    background-color: #083fc4;
+}
+
+.course-sidebar {
+    margin-left: 10px;
+}
+
+.wiki-wrapper section.wiki #hint_id_content {
+    top: 0px;
+}
+
+.view-wiki .wiki-wrapper section.wiki #div_id_locked .controls p#hint_id_locked,
+.view-wiki .wiki-wrapper section.wiki #div_id_recursive .controls p#hint_id_recursive {
+    margin-left: 20px;
+    margin-top: -23px;
+}
+
+.wiki-wrapper section.wiki .btn.btn-primary, 
+.wiki-wrapper section.wiki .btn {
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background-color: #3a76f8; 
+	color: #FFF;
+}
+
+.wiki-wrapper section.wiki .btn.btn-primary:hover:not(:disabled), 
+.wiki-wrapper section.wiki .btn:hover:not(:disabled) {
+	box-shadow: none;
+	background-color: #083fc4;
+}
+
+.wiki-wrapper section.wiki .btn {
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background-color: #eee; 
+	color: #262626;
+}
+
+.wiki-wrapper section.wiki .btn:hover:not(:disabled) {
+	box-shadow: none;
+	background-color: #dbdbdb;
+}
+
+.wiki-wrapper section.wiki .btn.btn-danger {
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background-color: #b5000d; 
+	color: #fff;
+}
+
+.wiki-wrapper section.wiki .btn.btn-danger:hover:not(:disabled) {
+	box-shadow: none;
+	background-color: #7a2000;
+}
+
+.edx-notes-wrapper .annotator-wrapper .annotator-editor.annotator-outer button.annotator-save, 
+.view-student-notes .title-search-container .search-notes-submit {
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background-color: #3a76f8; 
+	color: #fff;
+	border: 1px solid #3a76f8;
+}
+
+.edx-notes-wrapper .annotator-wrapper .annotator-editor.annotator-outer button.annotator-save:hover, 
+.view-student-notes .title-search-container .search-notes-submit:hover, 
+.edx-notes-wrapper .annotator-wrapper .annotator-editor.annotator-outer button.annotator-save:active, 
+.view-student-notes .title-search-container .search-notes-submit:active, 
+.edx-notes-wrapper .annotator-wrapper .annotator-editor.annotator-outer button.annotator-save:focus, 
+.view-student-notes .title-search-container .search-notes-submit:focus {
+	box-shadow: none;
+	background-color: #083fc4;
+	border: 1px solid #083fc4;
+}
+
+.instructor-dashboard-content-2 input[type=""button""], 
+.instructor-dashboard-wrapper-2 section.idash-section#membership .member-lists-management .auth-list-container .member-list-widget input[type=""button""].add, 
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .cohort-management-nav .action-create, 
+.instructor-dashboard-wrapper-2 section.idash-section#discussions_management .form-submit, 
+.ecommerce-wrapper span.tip .add:active:not(:disabled), 
+.ecommerce-wrapper span.tip .add:focus:not(:disabled), 
+.proctoring-wrapper span.tip .add:active:not(:disabled), 
+.proctoring-wrapper span.tip .add:focus:not(:disabled), 
+.wiki-wrapper section.wiki .btn, 
+.instructor-dashboard-wrapper-2 .customBrowseBtn .file-browse .browse, 
+.instructor-dashboard-wrapper-2 section.idash-section#discussions_management .form-submit {
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	border: none;
+	background-color: #3a76f8; 
+	color: #fff;
+}
+
+.instructor-dashboard-content-2 input[type=""button""]:hover:not(:disabled),
+.instructor-dashboard-wrapper-2 section.idash-section#membership .member-lists-management .auth-list-container .member-list-widget input[type=""button""].add:hover:not(:disabled),
+.instructor-dashboard-wrapper-2 section.idash-section#cohort_management .cohort-management-nav .action-create:hover:not(:disabled),
+.instructor-dashboard-wrapper-2 section.idash-section#discussions_management .form-submit:hover:not(:disabled),
+.ecommerce-wrapper span.tip .add:hover:not(:disabled), 
+.proctoring-wrapper span.tip .add:hover:not(:disabled),
+.wiki-wrapper section.wiki .btn:hover:not(:disabled),
+.instructor-dashboard-wrapper-2 .customBrowseBtn .file-browse .browse:hover:not(:disabled), 
+.instructor-dashboard-wrapper-2 section.idash-section#discussions_management .form-submit:hover:not(:disabled) {
+	box-shadow: none;
+	background-color: #083fc4;
+}
+
+.btn-blue, 
+.view-teams .action-primary, 
+.instructor-dashboard-wrapper-2 .btn-blue {
+	background-color: #FFF;
+	color: #3a76f8;
+    border: 1px solid #3a76f8; 
+    border-radius: 5px; 
+    font-weight: 700;
+}
+
+.btn-blue:hover, 
+.view-teams .action-primary:hover, 
+.instructor-dashboard-wrapper-2 .btn-blue:hover {
+	background-color: #FFF !important;
+	color: #083fc4;
+	border: 1px solid #083fc4;
+	border-radius: 5px;
+	font-weight: 700;
+	box-shadow: none;
+	background-image: none !important;	
+}
+
+.instructor-dashboard-wrapper-2 .customBrowseBtn .file-browse .file_field {
+    padding-top: 11px;
+    height: 32px;
+}
+
+.instructor-dashboard-wrapper-2 section.idash-section#student_admin .action-type-container br:first-child {
+    display: none;
+}
+
+.instructor-dashboard-wrapper-2 section.idash-section#student_admin input[type="text"], 
+.instructor-dashboard-wrapper-2 section.idash-section#send_email input[name="subject"]{
+    max-width: 651px;
+    width: 100%;
+}
+

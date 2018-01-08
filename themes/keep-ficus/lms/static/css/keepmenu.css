@@ -605,7 +605,7 @@ body {
 
 nav.courseware .course-material ol.tabs.course-tabs,
 nav.discussion .course-material ol.tabs.course-tabs {
-    padding-top: 10px;
+    padding-top: 8px;
 }
 
 body.view-in-course nav.courseware .course-material .course-tabs {
@@ -651,7 +651,7 @@ body.view-in-course .window-wrap {
 }
 
 .wrapper-preview-menu  {
-   padding-bottom: 17px;
+   padding-bottom: 16px;
 }
 
 .edxnotes.wrapper-course-material .course-tabs,
