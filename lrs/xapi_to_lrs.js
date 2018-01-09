@@ -5,7 +5,16 @@
 * npm install --save lazy
 * npm install --save adl-xapiwrapper
 * npm install --save config
+*
+*
+* Configuration in different environment:
+* Running the following command in production before running the code, the
+* configuration will come form `config/production.json` instead of `config/default.json`
+*
+* e.g in production
+* $ export NODE_ENV=production
 **/
+
 var fs   = require('fs');
 var lazy = require('lazy');
 var adl  = require('adl-xapiwrapper');
