@@ -1,4 +1,11 @@
 /** Import libraries **/
+/**
+* Installation:
+* npm install --save fs
+* npm install --save lazy
+* npm install --save adl-xapiwrapper
+* npm install --save config
+**/
 var fs   = require('fs');
 var lazy = require('lazy');
 var adl  = require('adl-xapiwrapper');
