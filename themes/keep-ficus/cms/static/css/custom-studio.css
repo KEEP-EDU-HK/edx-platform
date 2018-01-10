@@ -316,3 +316,16 @@ body {
     margin-right: 0px;
 }
 
+@media screen and (max-width: 968px) {
+    .wrapper-mast .mast.has-actions .nav-actions ul {
+        margin-bottom: 30px;
+    }
+
+    .wrapper-mast .mast.has-actions .nav-actions .nav-item {
+        margin-bottom: 5px;
+    }
+
+    .wrapper-mast .mast.has-actions .nav-actions li.nav-item:last-child {
+        margin-right: 10px;
+    }
+}
