@@ -524,7 +524,7 @@ def translateLog(xapi, line):
                     ('mbox' , 'mailto:' + xapi['user_email']),
                     ('courseid' , xapi['course_id']),
                     ('coursename' , xapi['course_name']),
-                    ('role' , xapi['user_role']),
+                    ('rolename' , xapi['user_role']),
                     ('other' , line),
                     ('ip' , xapi['ip_addr'])
                 ]))
