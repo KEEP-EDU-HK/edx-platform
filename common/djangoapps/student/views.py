@@ -1816,7 +1816,7 @@ def create_account_with_params(request, params):
 
     if is_third_party_auth_enabled and (pipeline.running(request) or third_party_auth_credentials_in_api):
         params["password"] = pipeline.make_random_password()
-
+    
     # in case user is registering via third party (Google, Facebook) and pipeline has expired, show appropriate
     # error message
     if is_third_party_auth_enabled and ('social_auth_provider' in params and not pipeline.running(request)):
@@ -1976,7 +1976,7 @@ def create_account_with_params(request, params):
     REGISTER_USER.send(sender=None, user=user, profile=profile)
 
     create_comments_service_user(user)
-
+    
     # Don't send email if we are:
     #
     # 1. Doing load testing.
@@ -2022,6 +2022,49 @@ def create_account_with_params(request, params):
     if new_user is not None:
         AUDIT_LOG.info(u"Login success on new account creation - {0}".format(new_user.username))
 
+    if params['social_auth_provider'] == 'KEEPAuth' and running_pipeline:
+        #{u'session_index': u'_4f231817a315bc006e6950509119181f77cea4751a', u'idp_name': u'keep-auth', 
+        # u'attributes': {u'username': [u'ntest9'], u'google': [], u'policyagreed': [u'0'], 
+        #                 u'firstname': [u'ntest'], u'deleted': [u'0'], u'lastname': [u'9'], 
+        #                 u'twitter': [], u'activated': [u'1'], u'keepid': [u'ccd92154-5954-4df4-9d5a-9f74f3982136'], 
+        #                 u'facebook': [], u'enckeepid': [u'A6BA316416B16853416839BFC85504EF45E54A1B1B1A053A4D2B7FE0E99E18A7E76B0986157C346AF7D82952A9FE038A'], 
+        #                 u'name_id': u'ad8adfc625336ced9df8cf8f3fd37f008b5698d4', u'fullname': [u'ntest 9'], 
+        #                 u'password': [u'3ebbda6f791ee3dcd6d476fb9afd4cfcff3d2739e06ba6869a1105744b12204d'], u'id': [u'38607'], 
+        #                 u'login': [u'ntest9@mailcatch.com']}}
+        
+        try:
+            pipelineResponse = running_pipeline['kwargs'].get('response', {}).get('attributes')
+            
+            log.info("****************** extauth *******************")
+            log.info(pipelineResponse)
+            
+            if pipelineResponse:
+                keepid = pipelineResponse.get('keepid')[0]
+                if ExternalAuthMap.objects.filter(external_id=keepid):
+                    log.error(u'Failed - keepid %s already exists as external_id', keepid)
+                
+                username = pipelineResponse.get('username')[0]
+                email = pipelineResponse.get('login')[0]
+                firstname = pipelineResponse.get('firstname')[0]
+                fullname = pipelineResponse.get('fullname')[0]
+                lastname = pipelineResponse.get('lastname')[0]
+                credentials = '{"username": "%s", "REMOTE_USER": "%s", "displayName": "%s", "Shib-Identity-Provider": "https://account.keep.edu.hk/idp/saml2/idp/metadata.php", "sn": "%s", "mail": "%s", "givenName": "%s"}' % (username, keepid, fullname, lastname, email, firstname)
+                objeamap = ExternalAuthMap(
+                    external_id=keepid,
+                    external_email=email,
+                    external_domain='shib:https://account.keep.edu.hk/idp/saml2/idp/metadata.php',
+                    external_name=username,
+                    internal_password=params["password"],
+                    external_credentials=credentials,
+                )
+                objeamap.user = new_user
+                objeamap.dtsignup = datetime.datetime.now(UTC)
+                objeamap.save()
+        # Don't prevent a user from registering due to errors.
+        except Exception as e:   # pylint: disable=broad-except
+            log.exception('Error while add user details in ExternalAuth')
+            log.exception(e)
+            
     if do_external_auth:
         eamap.user = new_user
         eamap.dtsignup = datetime.datetime.now(UTC)
