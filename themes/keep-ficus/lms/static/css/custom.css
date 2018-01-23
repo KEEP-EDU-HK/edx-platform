@@ -496,7 +496,7 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 .instructor-dashboard-wrapper-2 .customBrowseBtn .file-browse .file_field {
     padding-top: 4px;
     height: 32px;
-    left: -29%;
+    left: -30%;
 }
 
 .instructor-dashboard-wrapper-2 section.idash-section#student_admin .action-type-container br:first-child {
@@ -548,7 +548,7 @@ section.outside-app ul li {
 }
 @media screen and (max-width: 835px) {
     .view-profile .badge-set-display .badge-display {
-        width: 100%;
+        width: 90%;
     }
 }
 

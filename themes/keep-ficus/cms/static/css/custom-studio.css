@@ -346,3 +346,29 @@ body {
 .util-404 {
     -webkit-font-smoothing: antialiased;
 }
+
+.view-uploads .wrapper-content .content .assets-table tbody tr img {
+  position: relative;
+}
+
+.view-uploads .wrapper-content .content .assets-table tbody tr img[alt]:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+  line-height: 1.5;
+  text-align: left;
+  content: attr(alt);
+}
+
+.view-uploads .wrapper-content .content .assets-table tbody tr:nth-child(odd) img[alt]:after {
+  background-color: #f9f9f9;
+}
+
+.view-uploads .wrapper-content .content .assets-table tbody tr:hover img[alt]:after {
+  background-color: #e6f5fd !important;
+}
