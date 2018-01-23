@@ -20,12 +20,17 @@ var output = process.argv[6];
  * This function is used to extract valid logs within the given period
  **/
 function parseData(line) {
-    var s = JSON.parse(line);
-    if (s["username"] != '' && s["time"] >= starttime & s["time"] < endtime) {
-        return JSON.stringify(s);
-    } else {
-        return false;
+    try {
+        var s = JSON.parse(line);
+        if (s["username"] != '' && s["time"] >= starttime & s["time"] < endtime) {
+            return JSON.stringify(s);
+        } else {
+            return false;
+        }
     }
+    catch(err) {
+        return false;
+    } 
 }
 console.log("------------------------------------------------------------------");
 console.log("Starting edxlogfilter from " + starttime + " to " + endtime);
