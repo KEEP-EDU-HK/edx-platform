@@ -329,3 +329,20 @@ body {
         margin-right: 10px;
     }
 }
+
+[class*="view-"] .modal-lg.modal-editor .modal-header .editor-modes {
+    width: 30%;
+}
+
+[class*="view-"] .modal-lg.modal-editor .modal-header .title {
+    width: 65%;
+}
+
+.view-util .content header h1,
+.view-util .content .content-primary p {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}
+
+.util-404 {
+    -webkit-font-smoothing: antialiased;
+}
