@@ -121,3 +121,8 @@ body.None .keepfooter,
 body.discussion .keepfooter {
     margin-top: 3rem;
 }
+
+.wrapper-content.status-invalid .content-main section h2.title, 
+.wrapper-content.status-invalid .content-main section p {
+    font-family: "Open Sans",Verdana,Geneva,sans-serif,sans-serif;
+}

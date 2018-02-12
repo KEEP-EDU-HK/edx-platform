@@ -156,7 +156,7 @@ span.membership-note {
 }
 
 .instructor-dashboard-wrapper-2 section.idash-section#membership .member-lists-management .auth-list-container .member-list-widget .bottom-bar input[type="text"] {
-    width: 300px;
+    width: 45%;
 }
 
 .instructor-dashboard-wrapper-2 section.idash-section#student_admin .action-type-container
@@ -214,6 +214,7 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
     text-shadow: none;
     color: #fff;
     background-color: #3A76F8;
+    letter-spacing: normal;
 }
 
 .course-info header.course-profile .intro-inner-wrapper .intro .main-cta strong:hover,
@@ -239,6 +240,8 @@ section.outside-app p, section.outside-app ul, section.outside-app form {
 
 .course-info header.course-profile .intro-inner-wrapper .intro .main-cta span.register {
     border: 1px solid #ededed !important;    
+    text-transform: capitalize;
+    letter-spacing: normal;
 }
 
 .dashboard .my-courses .course .details .enter-course:hover, 
@@ -669,3 +672,8 @@ section.outside-app ul li {
 .view-student-notes .main-container .container {
     padding: 0 2%;
 }
+
+.instructor-dashboard-wrapper-2 section.idash-section#student_admin .location-example {
+    word-wrap: break-word;
+}
+
