@@ -26,7 +26,7 @@ class KEEPMiddleware(object):
             log.info(http_referer)
 
         try:
-            if not user.is_authenticated() and (request.COOKIES.get('KEEPSAMLAuthToken') or '/login' in request.path or '/register' in request.path) and not '/sso_login' in request.path and not '/shib-login' in request.path and not '/sso_logout' in request.path and not '/tpa-saml' in request.path and not ('/register' in request.path and 'account.keep.edu.hk' in http_referer) and not '/registration' in request.path:
+            if not user.is_authenticated() and (request.COOKIES.get('KEEPSAMLAuthToken') or '/login' in request.path or '/register' in request.path) and not '/sso_login' in request.path and not '/shib-login' in request.path and not '/sso_logout' in request.path and not '/tpa-saml' in request.path and not ('/register' in request.path and 'account.keep.edu.hk' in http_referer) and not '/registration' in request.path and not '/lti_provider' in request.path:
                 redirect_url = '/sso_login'
                 if request.get_full_path():
                     next = urlencode({'next':request.get_full_path()})
