@@ -1,0 +1,10 @@
+{
+  // LRS module configs
+  "lrs": {
+    "url": "http://10.11.2.7/public/data/xAPI/",
+    "auth": {
+      "username": "098edf13ed0032dd5cd0d1338523b4585bbf607b",
+      "password": "a4b4e259f105668404b39c9e4b4d94c692b1985d"
+    }
+  }
+}

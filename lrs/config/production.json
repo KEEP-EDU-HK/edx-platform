@@ -1,0 +1,10 @@
+{
+  // LRS module configs
+  "lrs": {
+    "url": "https://lrs.keep.edu.hk/data/xAPI/",
+    "auth": {
+      "username": "cc9e44be02a658814f42e2ff42580db17def2320",
+      "password": "7dd239928f6fd32261c8838352b4b08d49745297"
+    }
+  }
+}

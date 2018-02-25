@@ -500,7 +500,7 @@ def translateLog(xapi, line):
         ])),
         ('verb' , OrderedDict([
             ('display' , {
-                'en-us' : xapi['verb_display']
+                'en-US' : xapi['verb_display']
             }),
             ('id' , xapi['verb_id'])
         ])),
@@ -508,10 +508,10 @@ def translateLog(xapi, line):
             ('id' , xapi['object_id']),
             ('definition' , OrderedDict([
                 ('name' , {
-                    'en-us' : xapi['object_display']
+                    'en-US' : xapi['object_display']
                 }),
                 ('description' , {
-                    'en-us' : xapi['object_desc']
+                    'en-US' : xapi['object_desc']
                 })
             ]))
         ])),
@@ -524,7 +524,7 @@ def translateLog(xapi, line):
                     ('mbox' , 'mailto:' + xapi['user_email']),
                     ('courseid' , xapi['course_id']),
                     ('coursename' , xapi['course_name']),
-                    ('rolename' , xapi['user_role']),
+                    ('role' , xapi['user_role']),
                     ('other' , line),
                     ('ip' , xapi['ip_addr'])
                 ]))
