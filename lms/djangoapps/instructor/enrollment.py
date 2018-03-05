@@ -36,6 +36,9 @@ from track.event_transaction_utils import (
 from xmodule.modulestore.django import modulestore
 from xmodule.modulestore.exceptions import ItemNotFoundError
 
+import requests
+from requests.auth import HTTPBasicAuth
+
 log = logging.getLogger(__name__)
 
 
@@ -143,8 +146,19 @@ def enroll_email(course_id, student_email, auto_enroll=False, email_students=Fal
         cea, _ = CourseEnrollmentAllowed.objects.get_or_create(course_id=course_id, email=student_email)
         cea.auto_enroll = auto_enroll
         cea.save()
+        
+        email_params['message'] = 'allowed_enroll'
+        
+        try:
+            response = requests.get('https://account.keep.edu.hk/api/v1/users/' + student_email, auth=HTTPBasicAuth('<Redacted>', ''))
+            if response.status_code == requests.codes.ok:
+                res_json = json.loads(response.text)
+                email_params['full_name'] = res_json[0]['fullname']
+                email_params['message'] = 'enrolled_enroll'
+        except:
+            pass
+
         if email_students:
-            email_params['message'] = 'allowed_enroll'
             email_params['email_address'] = student_email
             send_mail_to_student(student_email, email_params, language=language)
 
