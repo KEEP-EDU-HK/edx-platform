@@ -109,10 +109,17 @@ class SearchIndexerBase(object):
         """
         response = searcher.search(
             doc_type=cls.DOCUMENT_TYPE,
-            field_dictionary=cls._get_location_info(structure_key),
+#            field_dictionary=cls._get_location_info(structure_key), 
+            field_dictionary={"course": unicode(structure_key)}, 
             exclude_dictionary={"id": list(exclude_items)}
         )
         result_ids = [result["data"]["id"] for result in response["results"]]
+        log.info("remove deleted items reindex - field dictionary")
+        log.info(cls._get_location_info(structure_key))
+        log.info("remove deleted items reindex - exclude ids")
+        log.info(exclude_items)
+        log.info("remove deleted items reindex - result ids")
+        log.info(result_ids)
         searcher.remove(cls.DOCUMENT_TYPE, result_ids)
 
     @classmethod
@@ -250,6 +257,7 @@ class SearchIndexerBase(object):
 
         try:
             with modulestore.branch_setting(ModuleStoreEnum.RevisionOption.published_only):
+                cls.remove_deleted_items(searcher, structure_key, set())
                 structure = cls._fetch_top_level(modulestore, structure_key)
                 groups_usage_info = cls.fetch_group_usage(modulestore, structure)
 
@@ -260,7 +268,7 @@ class SearchIndexerBase(object):
                 for item in structure.get_children():
                     prepare_item_index(item, groups_usage_info=groups_usage_info)
                 searcher.index(cls.DOCUMENT_TYPE, items_index)
-                cls.remove_deleted_items(searcher, structure_key, indexed_items)
+#                cls.remove_deleted_items(searcher, structure_key, indexed_items)
         except Exception as err:  # pylint: disable=broad-except
             # broad exception so that index operation does not prevent the rest of the application from working
             log.exception(
@@ -368,6 +376,7 @@ class CoursewareSearchIndexer(SearchIndexerBase):
     def _get_location_info(cls, normalized_structure_key):
         """ Builds location info dictionary """
         return {"course": unicode(normalized_structure_key), "org": normalized_structure_key.org}
+#        return {"course": normalized_structure_key}
 
     @classmethod
     def do_course_reindex(cls, modulestore, course_key):
