@@ -687,6 +687,7 @@ if FEATURES.get('ENABLE_THIRD_PARTY_AUTH'):
             'social_core.backends.google.GoogleOAuth2',
             'social_core.backends.linkedin.LinkedinOAuth2',
             'social_core.backends.facebook.FacebookOAuth2',
+            'social_core.backends.keep-auth.KeepAuthOAuth2',
             'social_core.backends.azuread.AzureADOAuth2',
             'third_party_auth.saml.SAMLAuthBackend',
             'third_party_auth.lti.LTIAuthBackend',
