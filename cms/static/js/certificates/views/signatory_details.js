@@ -94,7 +94,8 @@ function($, _, str, Backbone, gettext, TemplateUtils, ViewUtils, BaseView, Signa
             var attributes = $.extend({}, this.model.attributes, {
                 signatory_number: this.model.collection.indexOf(this.model) + 1
             });
-            return $(this.el).html(_.template(signatoryDetailsTemplate)(attributes));
+            if (attributes.id)
+                return $(this.el).html(_.template(signatoryDetailsTemplate)(attributes));
         }
     });
     return SignatoryDetailsView;
