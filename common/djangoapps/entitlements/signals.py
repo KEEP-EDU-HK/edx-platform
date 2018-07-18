@@ -13,4 +13,5 @@ def unenroll_entitlement(sender, course_enrollment=None, skip_refund=False, **kw
     """
     Un-enroll user from entitlement upon course run un-enrollment if exist.
     """
-    CourseEntitlement.unenroll_entitlement(course_enrollment)
+    CourseEntitlement.unenroll_entitlement(course_enrollment, skip_refund)
+
