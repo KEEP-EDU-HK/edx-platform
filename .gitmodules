@@ -1,0 +1,3 @@
+[submodule "common/djangoapps/edx_api"]
+	path = common/djangoapps/api
+	url = https://github.com/KEEP-EDU-HK/edx_api
